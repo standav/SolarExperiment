@@ -38,7 +38,7 @@
 			<div
 				style="float: left; width: 30%; margin-left: 5px; cursor: pointer">
 				<img ng-style="sunIconStyle" class="bright-button"
-					src="templates/experiments/teleoperation/img/sun-icon.png" ng-click="pointToTarget()">
+					ng-src="{{mainPath}}/img/sun-icon.png" ng-click="pointToTarget()">
 			</div>
 			<div ng-class="{'mess-info': inAction }"
 				style="float: left; width: 62%; margin-left: 10px;">{{targetMessage}}</div>
@@ -62,24 +62,24 @@
 					ng-show="status.dome.openEnabled" tooltip-popup-delay="500"
 					tooltip="Open the dome" tooltip-placement="left"
 					style="position: absolute; width: 35px; left: 57%; top: 123px; cursor: pointer">
-					<img class="bright-button" src="templates/experiments/teleoperation/img/dome_open.png"
+					<img class="bright-button" ng-src="{{mainPath}}/img/dome_open.png"
 						ng-click="openDome()">
 				</div>
 				<div ng-style="status.dome.closeStyle"
 					ng-show="status.dome.closeEnabled" tooltip-popup-delay="500"
 					tooltip="Close the dome" tooltip-placement="left"
 					style="position: absolute; width: 35px; left: 78.3%; top: 123px; cursor: pointer">
-					<img class="bright-button" src="templates/experiments/teleoperation/img/dome_close.png"
+					<img class="bright-button" ng-src="{{mainPath}}/img/dome_close.png"
 						ng-click="closeDome()">
 				</div>
 			</div>
 			<div class="shadow" ng-repeat="image in scams"
 				style="height: 166px; margin-bottom: 14px">
 				<span ng-switch on="image.purl==undefined"> <img
-					ng-switch-when="true" ng-src="templates/experiments/teleoperation/img/wn4.gif"
+					ng-switch-when="true" ng-src="{{mainPath}}/img/wn4.gif"
 					style="width: 216px; height: 162px; border: 2px solid rgba(0, 0, 0, 0.25); border-radius: 3px;">
 					<img ng-switch-when="false" id="{{$index}}" ng-src="{{image.purl}}"
-					err-SRC="templates/experiments/teleoperation/img/wn4.gif"
+					err-SRC="solar/img/wn4.gif"
 					style="height: 162px; width: 216px; border: 2px solid rgba(0, 0, 0, 0.25); border-radius: 3px;">
 				</span>
 			</div>
@@ -95,7 +95,7 @@
 				ng-mouseleave="status.main.focused=false">
 				<div class="shadow" style="margin-top: 10px; height: 345px">
 					<span ng-switch on="ccds[0].pcont==undefined"> <img
-						ng-switch-when="true" ng-src="templates/experiments/teleoperation/img/wn5.gif"
+						ng-switch-when="true" ng-src="{{mainPath}}/img/wn5.gif"
 						style="max-width: 100%; height: 342px; border: 2px solid rgba(0, 0, 0, 0.25); border-radius: 3px">
 						<img ng-switch-when="false" ng-src="{{ccds[0].pcont}}"
 						err-SRC="templates/experiments/teleoperation/img/wn5.gif"
@@ -123,7 +123,7 @@
 									ng-mousedown="beginSetExposureTime()"
 									ng-click="setExposureTimeValue(1.0)"
 									style="width: 20px; cursor: pointer" class="bright-button"
-									src="templates/experiments/teleoperation/img/plus.png">
+									ng-src="{{mainPath}}/img/plus.png">
 							</div>
 							<div tooltip-popup-delay="500" tooltip="Decrease exposure time"
 								tooltip-placement="right"
@@ -133,7 +133,7 @@
 									ng-show="status.main.exposure.valueSet"
 									ng-click="setExposureTimeValue(-1.0)"
 									style="width: 20px; cursor: pointer" class="bright-button"
-									src="templates/experiments/teleoperation/img/minus.png">
+									ng-src="{{mainPath}}/img/minus.png">
 							</div>
 							<div tooltip-popup-delay="500" tooltip="Set exposure time"
 								tooltip-placement="top"
@@ -143,7 +143,7 @@
 								style="position: absolute; left: 18px">
 								<img class="bright-button" ng-click="setExposureTime()"
 									style="float: left; width: 30px; cursor: pointer"
-									src="templates/experiments/teleoperation/img/exposure.png">
+									ng-src="{{mainPath}}/img/exposure.png">
 								<div class="animate-show" ng-show="status.main.clock.focused"
 									style="float: left; margin-top: 5px; margin-left: 5px;">{{ccds[0].exposure
 									| number:3}} s</div>
@@ -169,7 +169,7 @@
 									ng-mousedown="beginSetFocuserPosition()"
 									ng-click="setFocuserPositionValue(1.0)"
 									style="width: 20px; cursor: pointer" class="bright-button"
-									src="templates/experiments/teleoperation/img/plus.png">
+									ng-src="{{mainPath}}/img/plus.png">
 							</div>
 							<div tooltip-popup-delay="500" tooltip="Decrease focus steps"
 								tooltip-placement="left"
@@ -179,7 +179,7 @@
 									ng-mousedown="beginSetFocuserPosition()"
 									ng-click="setFocuserPositionValue(-1.0)"
 									style="width: 20px; cursor: pointer" class="bright-button"
-									src="templates/experiments/teleoperation/img/minus.png">
+									ng-src="{{mainPath}}/img/minus.png">
 							</div>
 							<div tooltip-popup-delay="500" tooltip="Change focus"
 								tooltip-placement="top"
@@ -191,7 +191,7 @@
 									style="position: absolute; width: 100px; text-align: right; right: 35px; float: left; margin-top: 5px; margin-right: 5px">{{focuser.offset-
 									500 | number: 0}} steps</div>
 								<img class="bright-button" ng-click="setFocuserPosition()"
-									style="float: left; width: 30px;" src="templates/experiments/teleoperation/img/focus.png">
+									style="float: left; width: 30px;" ng-src="{{mainPath}}/img/focus.png">
 
 							</div>
 						</div>
@@ -203,8 +203,8 @@
 							style="position: absolute; top: -53px; left: 200px;">
 							<img ng-show="imageTaken" ng-click="startExposure()"
 								style="width: 43px; cursor: pointer" class="bright-button"
-								src="templates/experiments/teleoperation/img/take.png"> <img ng-show="!imageTaken"
-								style="width: 43px; cursor: default" src="templates/experiments/teleoperation/img/loading.gif">
+								ng-src="{{mainPath}}/img/take.png"> <img ng-show="!imageTaken"
+								style="width: 43px; cursor: default" ng-src="{{mainPath}}/img/loading.gif">
 						</div>
 					</div>
 				</div>
@@ -222,7 +222,7 @@
 					style="border: 5px solid rgba(0, 0, 0, 0.25); height: 198px; width: 198px;">
 					<div ng-switch on="ccds[1].pcont==undefined"
 						style="margin-left: -33px">
-						<img ng-switch-when="true" ng-src="templates/experiments/teleoperation/img/wn3.gif"
+						<img ng-switch-when="true" ng-src="{{mainPath}}/img/wn3.gif"
 							style="height: 198px;"> <img ng-switch-when="false"
 							ng-src="{{ccds[1].pcont}}"
 							style="height: 198px; max-width: 150%;" err-SRC="templates/experiments/teleoperation/img/wn3.gif">
@@ -235,31 +235,31 @@
 						<div tooltip-popup-delay="500" tooltip="Move south"
 							tooltip-placement="top"
 							style="position: absolute; width: 15%; top: -28px; left: 94px; cursor: pointer;">
-							<img class="bright-button" src="templates/experiments/teleoperation/img/down.png"
+							<img class="bright-button" ng-src="{{mainPath}}/img/down.png"
 								ng-click="moveFinder('SOUTH')">
 						</div>
 						<div tooltip-popup-delay="500" tooltip="Move north"
 							tooltip-placement="bottom"
 							style="position: absolute; width: 15%; top: -203px; left: 94px; cursor: pointer;">
-							<img class="bright-button" src="templates/experiments/teleoperation/img/up.png"
+							<img class="bright-button" ng-src="{{mainPath}}/img/up.png"
 								ng-click="moveFinder('NORTH')">
 						</div>
 						<div tooltip-popup-delay="500" tooltip="Move west"
 							tooltip-placement="right"
 							style="position: absolute; width: 8%; top: -123px; left: 14px; cursor: pointer;">
-							<img class="bright-button" src="templates/experiments/teleoperation/img/left.png"
+							<img class="bright-button" ng-src="{{mainPath}}/img/left.png"
 								ng-click="moveFinder('WEST')">
 						</div>
 						<div tooltip-popup-delay="500" tooltip="Move east"
 							tooltip-placement="left"
 							style="position: absolute; width: 8%; top: -123px; left: 188px; cursor: pointer;">
-							<img class="bright-button" src="templates/experiments/teleoperation/img/right.png"
+							<img class="bright-button" ng-src="{{mainPath}}/img/right.png"
 								ng-click="moveFinder('EAST')">
 						</div>
 					</div>
 					<div
 						style="position: absolute; width: 20%; top: -130px; left: 90px; opacity: 0.6;">
-						<img src="templates/experiments/teleoperation/img/pointer.png">
+						<img ng-src="{{mainPath}}/img/pointer.png">
 					</div>
 				</div>
 			</div>
@@ -278,7 +278,7 @@
 						tooltip-placement="top" ng-class="{'mess-info': rh.high}"
 						style="float: left; display: inline-block; width: 50%">
 						<div style="width: 30%; float: left;">
-							<img src="templates/experiments/teleoperation/img/gota.png">
+							<img ng-src="{{mainPath}}/img/drop.png">
 						</div>
 						<div ng-style="rh.style"
 							style="float: left; margin-top: 5px; margin-left: 4px">{{rh.value}}
@@ -288,7 +288,7 @@
 						tooltip-placement="top" ng-class="{'mess-info': wind.high}"
 						style="float: left; display: inline-block; width: 50%">
 						<div style="width: 30%; float: left;">
-							<img src="templates/experiments/teleoperation/img/viento.png">
+							<img ng-src="{{mainPath}}/img/wind.png">
 						</div>
 						<div ng-style="wind.style"
 							style="float: left; margin-top: 5px; margin-left: 8px">{{wind.value}}
@@ -329,7 +329,7 @@
 		<div
 			style="float: left; cursor: pointer; width: 18px; margin-top: 12px; margin-left: 12px; height: 36px">
 			<img ng-show="currentIndex > 0" class="animate-show bright-button"
-				src="templates/experiments/teleoperation/img/left.png" ng-click="nextLeft()">
+				ng-src="{{mainPath}}/img/left.png" ng-click="nextLeft()">
 		</div>
 		<div
 			style="float: left; position: relative; overflow: hidden; width: 616px; height: 70px; margin-left: 15px; margin-right: 15px;"
@@ -353,7 +353,7 @@
 		<div
 			style="float: left; cursor: pointer; width: 18px; margin-top: 12px; height: 36px">
 			<img ng-show="currentIndex + 6 < images.length"
-				class="animate-show bright-button" src="templates/experiments/teleoperation/img/right.png"
+				class="animate-show bright-button" ng-src="{{mainPath}}/img/right.png"
 				ng-click="nextRight()">
 		</div>
 		<div>
@@ -382,7 +382,7 @@
 		<a target="about_blank"
 			href="https://play.google.com/store/apps/details?id=com.gloria.offlineexperiments">
 			<img alt="Solar Activity Experiment on Android"
-			src="templates/experiments/teleoperation/img/google_play.png" />
+			ng-src="{{mainPath}}/img/google_play.png" />
 		</a>
 	</div>
 </div>

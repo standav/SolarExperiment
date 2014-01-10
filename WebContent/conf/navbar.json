@@ -1,0 +1,9 @@
+{		
+	"home": {
+		"text": "navbar.titles.home",
+		"href": {
+			"app": "GLORIAHub",
+			"path": "/"
+		}
+	}
+}

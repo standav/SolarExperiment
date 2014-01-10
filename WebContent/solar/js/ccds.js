@@ -158,7 +158,7 @@ function StartExposure(GloriaAPI, scope, timeout) {
 function SolarCCDCtrl(GloriaAPI, $scope, $timeout, $sequenceFactory) {
 
 	$scope.sequence = $sequenceFactory.getSequence();
-	$scope.finderImage = 'templates/experiments/teleoperation/img/wn3.gif';
+	$scope.finderImage = $scope.mainPath + '/img/wn3.gif';
 	$scope.ccds = [ {}, {} ];
 	$scope.status = {
 		time : {

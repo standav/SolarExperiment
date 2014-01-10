@@ -3,7 +3,9 @@
 function SolarMainCtrl(GloriaAPI, $scope, $timeout,
 		$gloriaLocale, $routeParams) {
 
-	$gloriaLocale.loadResource('templates/experiments/teleoperation/lang', 'solar');
+	$scope.mainPath = 'solar';
+	
+	$gloriaLocale.loadResource($scope.mainPath + '/lang', 'solar');
 
 	$scope.requestRid = $routeParams.rid;
 	$scope.reservationEnd = false;
@@ -23,7 +25,7 @@ function SolarMainCtrl(GloriaAPI, $scope, $timeout,
 	$scope.ccdProblem = false;
 	$scope.weatherAlarm = false;
 	
-	$scope.specificHtml = 'templates/experiments/teleoperation/html/content.html';
+	$scope.specificHtml = $scope.mainPath + '/html/content.html';
 
 	$scope.onReservation = function() {
 		GloriaAPI.getReservationInformation($scope.preRid, function(data) {

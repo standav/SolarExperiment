@@ -1,27 +1,22 @@
 {
 	"solar": {
-		"path": "/templates/experiments/teleoperation/solar",
-		"html": "templates/experiments/teleoperation/html/parent.html",
+		"type": "main",
+		"path": "/",
+		"html": "solar/html/parent.html",
 		"js": [
-			"templates/experiments/teleoperation/js/main.js",
-			"templates/experiments/teleoperation/js/ccds.js",
-			"templates/experiments/teleoperation/js/elapsed.js",
-			"templates/experiments/teleoperation/js/images.js",
-			"templates/experiments/teleoperation/js/mount.js",
-			"templates/experiments/teleoperation/js/scams.js",
-			"templates/experiments/teleoperation/js/weather.js"
+			"solar/js/main.js",
+			"solar/js/ccds.js",
+			"solar/js/elapsed.js",
+			"solar/js/images.js",
+			"solar/js/mount.js",
+			"solar/js/scams.js",
+			"solar/js/weather.js"
 		]
 	},
 	"wrong": {
 		"type": "wrong-path",
 		"path": "/wrong",
 		"html": "base/html/wrong.html",
-		"js": []		
-	},
-	"main": {
-		"type": "main",
-		"path": "/",
-		"html": "base/html/main.html",
 		"js": []		
 	}
 }

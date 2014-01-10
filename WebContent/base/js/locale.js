@@ -7,12 +7,6 @@ function LocaleController($scope, $sce, $gloriaLocale, $window, gloriaView) {
 	$scope.languages = $gloriaLocale.getLanguages();
 	$scope.language = $gloriaLocale.getPreferredLanguage();
 
-	// alert($scope.language);
-	// var languageParts = $scope.language.split("-");
-	// var currentLanguage = languageParts[0];
-
-	// $gloriaLocale.setLanguage(currentLanguage);
-
 	$scope.setLanguage = function(index) {
 		$gloriaLocale.setPreferredLanguage($scope.languages[index]);
 		$window.location.reload();
@@ -28,13 +22,13 @@ locale.service('$gloriaLocale',
 			var preferredLang = $cookieStore.get('preferredLang');
 			if (preferredLang == undefined) {
 				preferredLang = $window.navigator.userLanguage
-						|| $window.navigator.language || 'en-UK';
+						|| $window.navigator.language || 'en';
 				
 				 var languageParts = preferredLang.split("-");
-				 preferredLang = languageParts[0];
+				 preferredLang = languageParts[0];				 
 			}
-
-			var resourcesLoaded = [];
+			
+			$locale.id = preferredLang;
 
 			var gLocale = {
 
@@ -50,7 +44,7 @@ locale.service('$gloriaLocale',
 				getLanguage : function() {
 					return $locale.id;
 				},
-				loadResource : function(path, name) {
+				loadResource : function(path, name, then) {
 					var url = path + '/lang_' + name + '_' + $locale.id
 							+ '.json';
 					$http({
@@ -59,6 +53,9 @@ locale.service('$gloriaLocale',
 						cache : false
 					}).success(function(data) {
 						$locale.dictionary[name] = data;
+						if (then != undefined) {
+							then();
+						}
 					}).error(function() {
 						var url = path + '/lang_' + name + '_en.json';
 						$http({
@@ -72,10 +69,6 @@ locale.service('$gloriaLocale',
 						});
 
 					});
-
-					/*if (resourcesLoaded.indexOf(name) < 0) {
-						resourcesLoaded.push(name);
-					}*/
 				},
 				loadCore : function(path, lang, post) {
 					var url = path + '/lang_core_' + lang + '.json';
@@ -148,5 +141,7 @@ locale.filter('i18n', function($gloriaLocale) {
 					'@{}@', p);
 			return result;
 		}
+		
+		//return '?';
 	};
 });

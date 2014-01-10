@@ -1,0 +1,159 @@
+.shadow {
+	-moz-box-shadow: 0px 0px 2px 3px rgba(0, 136, 204, 0.19);
+	-webkit-box-shadow: 0px 0px 2px 3px rgba(0, 136, 204, 0.19);
+	box-shadow: 0px 0px 2px 3px rgba(0, 136, 204, 0.19);
+}
+
+.scam-margin {
+	margin-top: 10px;
+}
+
+.circle {
+	border: 1px solid black;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-khtml-border-radius: 50%;
+	border-radius: 50%;
+	overflow: hidden;
+	margin: 0px;
+	/*display: inline-block;*/
+}
+
+.circle-inside {
+	overflow: hidden;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-khtml-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.arrows-control {
+	opacity: 0.2;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+.telescope-desc {
+	position: relative;
+	border: 1px solid rgba(0, 0, 0, 0.45);
+	margin-right: 5px;
+	float: left;
+	width: 30%;
+	height: 75px;
+	background-size: 100%;
+	background-position: 0 -10px;
+	background-image:
+		url(http://gloria-project.eu/wp-content/uploads/2013/11/t13-tad_300p.jpg);
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%); /* For Webkit browsers */
+	filter: gray; /* For IE 6 - 9 */
+	filter:
+		url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+	/* Firefox 10+, Firefox on Android */
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+	-webkit-transition: all 0.5s ease;
+}
+
+.telescope-desc:hover {
+	filter: grayscale(0%);
+	-webkit-filter: grayscale(0%);
+	filter:
+		url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
+}
+
+.images {
+	-webkit-transition: all 1.0s ease;
+	-moz-transition: all 1.0s ease;
+	-o-transition: all 1.0s ease;
+	-ms-transition: all 1.0s ease;
+	transition: all 1.0s ease;
+}
+
+.image-thumb {
+	border: 1px solid rgba(0, 0, 0, 0.25);
+	opacity: 0.4;
+	width: 85px;
+	float: left;
+	margin-left: 8px;
+	margin-right: 8px;
+	/*-webkit-filter: grayscale(100%);*/ /* For Webkit browsers */
+	filter: gray; /* For IE 6 - 9 */
+	/*filter:
+		url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");*/
+	/*filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);*/
+	/* Firefox 10+, Firefox on Android */
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+.image-thumb:hover {
+	border: 1px solid rgba(0, 0, 0, 0.0);
+	filter: grayscale(0%);
+	/*-webkit-filter: grayscale(0%);
+	filter:
+		url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");*/
+	opacity: 1.0;
+	width: 89px;
+	margin-left: 8px;
+	margin-right: 4px;
+	/*-moz-box-shadow: 0px 0px 1px 1px rgba(0, 136, 204, 0.19);
+	-webkit-box-shadow: 0px 0px 1px 1px rgba(0, 136, 204, 0.19);
+	box-shadow: 0px 0px 1px 1px rgba(0, 136, 204, 0.19);*/
+}
+
+.animate-enter {
+	-webkit-transition: 1s linear all; /* Chrome */
+	transition: 1s linear all;
+	opacity: 0;
+}
+
+.animate-enter.animate-enter-active {
+	opacity: 1;
+}
+
+.image-modal {
+	margin-left: 0px;
+	width: 50%;
+	left: 25%;
+	height: 75%;
+	background-color: transparent;
+	border: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+input[type=range] {
+	-webkit-appearance: none;
+	background-color: silver;
+	width: 200px;
+	height: 20px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	background-color: #666;
+	opacity: 0.5;
+	width: 10px;
+	height: 26px;
+}
+
+input[type="range"]::slider-thumb {
+	appearance: none;
+	background-color: #666;
+	opacity: 0.5;
+	width: 10px;
+	height: 26px;
+}
