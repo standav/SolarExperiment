@@ -8,19 +8,19 @@ function NavbarCtrl($scope, $http, $location, $window, $gloriaLocale) {
 		var cl = '';
 
 		if ($scope.objMenus[menu].href != undefined) {
-			cl = $scope.objMenus[menu].href.path === currentRoute ? 'active' : '';
+			cl = $scope.objMenus[menu].href.path === currentRoute ? 'active'
+					: '';
 		} else {
 			if ($scope.objMenus[menu].child != undefined) {
 				cl += ' dropdown';
 
-				$scope.objMenus[menu].child
-						.forEach(function(child) {
-							if (child.href != undefined) {
-								cl += ' '
-										+ (child.href.path === currentRoute ? 'active'
-												: '');
-							}
-						});
+				$scope.objMenus[menu].child.forEach(function(child) {
+					if (child.href != undefined) {
+						cl += ' '
+								+ (child.href.path === currentRoute ? 'active'
+										: '');
+					}
+				});
 			}
 		}
 
@@ -49,18 +49,19 @@ function NavbarCtrl($scope, $http, $location, $window, $gloriaLocale) {
 
 	$scope.changePath = function(href) {
 		if (href != undefined) {
-			
+
 			if (href.app != undefined) {
-				$window.location.pathname = href.app;	
+				$window.location.hash = '';
+				$window.location.pathname = href.app;
 			}
-			
+
 			if (href.url != undefined) {
 				$window.location.href = href.url;
 			}
-			
+
 			if (href.path != undefined) {
 				$location.path(href.path);
-			}			
+			}
 		}
 	};
 
