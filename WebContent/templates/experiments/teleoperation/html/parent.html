@@ -1,0 +1,63 @@
+<!--  Import scripts and css here -->
+<link href="templates/experiments/teleoperation/css/styles.css" rel="stylesheet"></link>
+
+<!-- Experiment container -->
+<div ng-controller="SolarMainCtrl">
+	<div class="page-header" style="border: none; margin-bottom: 10px">
+		<div class="row" style="margin-bottom: 0px">
+			<h2 class="test" style="margin-left: 18px">{{'solar.header'|i18n}}</h2>
+		</div>
+	</div>
+	<div class="animate-show"
+		ng-if="!notAuthorized && !reservationActive && !wrongReservation">
+
+		<div ng-if="!reservationEnd">
+			<div ng-if="!deviceProblem">
+				<div ng-switch on="infoUpdated">
+					<div ng-switch-when="true" class="alert alert-info"
+						style="width: 40%; margin-left: 30%">
+						<div ng-show="reservationObsolete">
+							<strong>Sorry!</strong> You do not have a reservation for this
+							experiment.<br>Want to have one? Click<a
+								href="#/experiments/available"> here.</a>
+						</div>
+						<div ng-show="!reservationObsolete">
+							<strong>Hey!</strong> The reservation id <strong>{{preRid}}</strong>
+							never existed.
+						</div>
+					</div>
+					<div ng-switch-when="true" ng-show="!infoUpdated"
+						class="alert alert-info mess-info"
+						style="width: 30%; margin-left: 35%">
+						<strong>Loading.</strong> Please wait...
+					</div>
+				</div>
+				<div ng-show="deviceProblem" class="alert alert-info"
+					style="width: 50%; margin-left: 25%">
+					<strong>Sorry!</strong> The telescope is not working properly.
+					Please try again in a few minutes.
+				</div>
+			</div>
+			<div ng-show="reservationEnd" class="alert alert-info"
+				style="width: 50%; margin-left: 25%">
+				<strong>Oh!</strong> Your reservation has ended, we hope you enjoyed
+				the experiment!.
+			</div>
+		</div>
+	</div>
+	<div class="animate-show alert" ng-if="notAuthorized"
+		style="width: 40%; margin-left: 30%">
+		<strong>Oops!</strong> Your are not logged in. Redirecting...
+	</div>
+	<div class="animate-show alert" ng-if="wrongReservation"
+		style="width: 40%; margin-left: 30%">
+		<strong>Oops!</strong> The reservation id <strong>{{requestRid}}</strong>
+		is not valid.
+	</div>
+	<div class="animate-show"
+		ng-show="!deviceProblem && reservationActive && !notAuthorized"
+		ng-class="{'transparent': reservationEnd || notAuthorized || ccdProblem}">
+		
+		<div ng-include src="specificHtml"></div>
+	</div>
+</div>

@@ -1,0 +1,45 @@
+{
+	"header" : "Solar experiment",
+	"blocks": {
+		"purpose": {
+			"title": "Purpose",
+			"content": ""
+		},
+		"tel_desc": { 
+			"title": "Telescope description",
+			"content": ""
+		},
+		"target": { 
+			"title": "Target",
+			"content": ""
+		},
+		"finder": {
+			"title": "Finder",
+			"content": ""
+		},
+		"exterior": {
+			"title": "Exterior view",
+			"content": ""
+		},
+		"tel_sight": {
+			"title": "Telescope sight",
+			"content": ""
+		},
+		"weather": {
+			"title": "Weather conditions",
+			"content": ""
+		},
+		"elapsed": {
+			"title": "Elapsed time",
+			"content": ""
+		},
+		"images": {
+			"title": "Your images",
+			"content": ""
+		},
+		"measure": {
+			"title": "Measure solar activity",
+			"content": ""
+		}
+	}
+}

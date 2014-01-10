@@ -1,0 +1,45 @@
+{
+	"header" : "Experimento solar",
+	"blocks": {
+		"purpose": {
+			"title": "Objetivo",
+			"content": ""
+		},
+		"tel_desc": { 
+			"title": "Descripción del telescopio",
+			"content": ""
+		},
+		"target": { 
+			"title": "Objeto",
+			"content": ""
+		},
+		"finder": {
+			"title": "Buscador",
+			"content": ""
+		},
+		"exterior": {
+			"title": "Vista exterior",
+			"content": ""
+		},
+		"tel_sight": {
+			"title": "Vista del telescopio",
+			"content": ""
+		},
+		"weather": {
+			"title": "Tiempo atmosférico",
+			"content": ""
+		},
+		"elapsed": {
+			"title": "Tiempo de reserva",
+			"content": ""
+		},
+		"images": {
+			"title": "Tus imágenes",
+			"content": ""
+		},
+		"measure": {
+			"title": "Mide la actividad solar",
+			"content": ""
+		}
+	}
+}
