@@ -1,6 +1,6 @@
 'use strict';
 
-function SolarMainCtrl(GloriaAPI, $scope, $timeout,
+function SolarMainCtrl($gloriaAPI, $scope, $timeout,
 		$gloriaLocale, $routeParams) {
 
 	$scope.mainPath = 'solar';
@@ -28,7 +28,7 @@ function SolarMainCtrl(GloriaAPI, $scope, $timeout,
 	$scope.specificHtml = $scope.mainPath + '/html/content.html';
 
 	$scope.onReservation = function() {
-		GloriaAPI.getReservationInformation($scope.preRid, function(data) {
+		$gloriaAPI.getReservationInformation($scope.preRid, function(data) {
 
 			if (data.status == 'READY') {
 				$scope.rid = $scope.preRid;

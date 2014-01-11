@@ -1,8 +1,8 @@
 'use strict';
 
-function LoadRemainingTime(GloriaAPI, scope) {
+function LoadRemainingTime($gloriaAPI, scope) {
 	return scope.sequence.execute(function() {
-		return GloriaAPI.getRemainingTime(scope.rid, function(data) {
+		return $gloriaAPI.getRemainingTime(scope.rid, function(data) {
 			scope.remaining = Math.max(0, parseInt(data));
 		});
 	}).then(function() {
@@ -14,10 +14,10 @@ function LoadRemainingTime(GloriaAPI, scope) {
 		}
 	});
 }
-function LoadElapsedTime(GloriaAPI, scope) {
+function LoadElapsedTime($gloriaAPI, scope) {
 
 	return scope.sequence.execute(function() {
-		return GloriaAPI.getElapsedTime(scope.rid, function(data) {
+		return $gloriaAPI.getElapsedTime(scope.rid, function(data) {
 			scope.elapsed = parseInt(data);
 			scope.total = scope.remaining + scope.elapsed;
 			scope.progressStyle.width = Math.floor(scope.elapsed
@@ -34,7 +34,7 @@ function LoadElapsedTime(GloriaAPI, scope) {
 	});
 }
 
-function SolarElapsedCtrl(GloriaAPI, $sequenceFactory, $scope, $timeout) {
+function SolarElapsedCtrl($gloriaAPI, $sequenceFactory, $scope, $timeout) {
 
 	$scope.sequence = $sequenceFactory.getSequence();
 	$scope.remaining = 0;
@@ -57,8 +57,8 @@ function SolarElapsedCtrl(GloriaAPI, $sequenceFactory, $scope, $timeout) {
 
 	$scope.status.time.onTimeout = function() {
 
-		LoadRemainingTime(GloriaAPI, $scope);
-		LoadElapsedTime(GloriaAPI, $scope).then(
+		LoadRemainingTime($gloriaAPI, $scope);
+		LoadElapsedTime($gloriaAPI, $scope).then(
 				function() {
 					$scope.status.time.timer = $timeout(
 							$scope.status.time.onTimeout, 5000);

@@ -1,7 +1,7 @@
 'use strict';
 
-function LoadDomeContent(GloriaAPI, scope) {
-	return GloriaAPI.getParameterValue(scope.rid, 'dome', function(data) {
+function LoadDomeContent($gloriaAPI, scope) {
+	return $gloriaAPI.getParameterValue(scope.rid, 'dome', function(data) {
 		console.log(data);
 
 		if (data.last_operation != undefined) {
@@ -18,27 +18,27 @@ function LoadDomeContent(GloriaAPI, scope) {
 	});
 }
 
-function OpenDome(GloriaAPI, scope) {
+function OpenDome($gloriaAPI, scope) {
 
-	GloriaAPI
+	$gloriaAPI
 			.setParameterTreeValue(scope.rid, 'dome', 'last_operation', 'open');
 
-	return GloriaAPI.executeOperation(scope.rid, 'open', function(data) {
+	return $gloriaAPI.executeOperation(scope.rid, 'open', function(data) {
 	}, function(error) {
 	});
 }
 
-function CloseDome(GloriaAPI, scope) {
+function CloseDome($gloriaAPI, scope) {
 
-	GloriaAPI.setParameterTreeValue(scope.rid, 'dome', 'last_operation',
+	$gloriaAPI.setParameterTreeValue(scope.rid, 'dome', 'last_operation',
 			'close');
 
-	return GloriaAPI.executeOperation(scope.rid, 'close', function(data) {
+	return $gloriaAPI.executeOperation(scope.rid, 'close', function(data) {
 	}, function(error) {
 	});
 }
 
-function SolarScamCtrl(GloriaAPI, $scope, $timeout) {
+function SolarScamCtrl($gloriaAPI, $scope, $timeout) {
 
 	$scope.scams = [ {}, {} ];
 	$scope.status = {
@@ -57,7 +57,7 @@ function SolarScamCtrl(GloriaAPI, $scope, $timeout) {
 		$scope.status.dome.openEnabled = false;
 		$scope.status.dome.closeEnabled = false;
 		$scope.status.dome.lastOperation = 'open';
-		OpenDome(GloriaAPI, $scope);
+		OpenDome($gloriaAPI, $scope);
 		$scope.status.dome.timer = $timeout($scope.status.dome.timeout, 60000);
 	};
 
@@ -75,7 +75,7 @@ function SolarScamCtrl(GloriaAPI, $scope, $timeout) {
 		$scope.status.dome.closeEnabled = false;
 		$scope.status.dome.openEnabled = false;
 		$scope.status.dome.lastOperation = 'close';
-		CloseDome(GloriaAPI, $scope);
+		CloseDome($gloriaAPI, $scope);
 		$scope.status.dome.timer = $timeout($scope.status.dome.timeout, 60000);
 	};
 
@@ -93,8 +93,8 @@ function SolarScamCtrl(GloriaAPI, $scope, $timeout) {
 
 	$scope.$watch('rid', function() {
 		if ($scope.rid > 0) {
-			LoadDomeContent(GloriaAPI, $scope);
-			GloriaAPI.getParameterTreeValue($scope.rid, 'cameras', 'scam',
+			LoadDomeContent($gloriaAPI, $scope);
+			$gloriaAPI.getParameterTreeValue($scope.rid, 'cameras', 'scam',
 					function(data) {
 						console.log(data);
 

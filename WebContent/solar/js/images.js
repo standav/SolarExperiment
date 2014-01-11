@@ -1,9 +1,9 @@
 'use strict';
 
-function LoadMyImages(GloriaAPI, scope) {
+function LoadMyImages($gloriaAPI, scope) {
 	scope.images = [];
 
-	return GloriaAPI.getImagesByContext(scope.rid, function(data) {
+	return $gloriaAPI.getImagesByContext(scope.rid, function(data) {
 		var i = 0;
 
 		data.forEach(function(element) {
@@ -20,7 +20,7 @@ function LoadMyImages(GloriaAPI, scope) {
 
 }
 
-function SolarImagesCtrl(GloriaAPI, $sequenceFactory, $scope, $timeout, $modal, $log) {
+function SolarImagesCtrl($gloriaAPI, $sequenceFactory, $scope, $timeout, $modal, $log) {
 
 	$scope.sequence = $sequenceFactory.getSequence();
 	$scope.images = [];
@@ -34,14 +34,14 @@ function SolarImagesCtrl(GloriaAPI, $sequenceFactory, $scope, $timeout, $modal, 
 
 	$scope.$watch('rid', function() {
 		if ($scope.rid > 0) {
-			LoadMyImages(GloriaAPI, $scope);
+			LoadMyImages($gloriaAPI, $scope);
 			$scope.sliderStyle.left = "0px";
 		}
 	});
 
 	$scope.$watch('imageTaken', function() {
 		if ($scope.rid > 0 && $scope.$parent.imageTaken) {
-			LoadMyImages(GloriaAPI, $scope).then(function() {
+			LoadMyImages($gloriaAPI, $scope).then(function() {
 				$scope.currentIndex = Math.max(0, $scope.images.length - 6);
 			});
 		}

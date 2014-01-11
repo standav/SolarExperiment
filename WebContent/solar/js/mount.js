@@ -1,18 +1,18 @@
 'use strict';
 
-function SetMountStatus(GloriaAPI, scope, status) {
-	return GloriaAPI.setParameterTreeValue(scope.rid, 'mount', 'saved_status',
+function SetMountStatus($gloriaAPI, scope, status) {
+	return $gloriaAPI.setParameterTreeValue(scope.rid, 'mount', 'saved_status',
 			status, function(data) {
 				scope.status.context = status;
 			});
 }
 
-function GetMountStatus(GloriaAPI, scope) {
-	return GloriaAPI.getParameterTreeValue(scope.rid, 'mount', 'saved_status',
+function GetMountStatus($gloriaAPI, scope) {
+	return $gloriaAPI.getParameterTreeValue(scope.rid, 'mount', 'saved_status',
 			function(data) {
 
 				if (data == null || data == "") {
-					SetMountStatus(GloriaAPI, scope, 'INIT');
+					SetMountStatus($gloriaAPI, scope, 'INIT');
 					scope.status.context = 'INIT';
 				} else {
 					scope.status.context = data;
@@ -21,52 +21,52 @@ function GetMountStatus(GloriaAPI, scope) {
 				return scope.status.context;
 			}, function(error) {
 				scope.status.context = 'INIT';
-				SetMountStatus(GloriaAPI, scope, 'INIT');
+				SetMountStatus($gloriaAPI, scope, 'INIT');
 			});
 }
 
-function SetTargetName(GloriaAPI, scope) {
+function SetTargetName($gloriaAPI, scope) {
 
-	SetRates(GloriaAPI, scope);
+	SetRates($gloriaAPI, scope);
 
-	return GloriaAPI.setParameterTreeValue(scope.rid, 'mount', 'target.object',
+	return $gloriaAPI.setParameterTreeValue(scope.rid, 'mount', 'target.object',
 			'sun', function(data) {
 				scope.targetMessage = scope.messages.requestPoint;
 				scope.targetReady = true;
 				scope.pointingEnabled = true;
 				scope.sunIconStyle.opacity = 1.0;
 				scope.$parent.targetSettingsLoaded = true;
-				SetMountStatus(GloriaAPI, scope, 'TARGET_SET');
+				SetMountStatus($gloriaAPI, scope, 'TARGET_SET');
 			});
 }
 
-function SetRates(GloriaAPI, scope) {
+function SetRates($gloriaAPI, scope) {
 	scope.sequence.execute(function() {
-		return GloriaAPI.setParameterTreeValue(scope.rid, 'mount',
+		return $gloriaAPI.setParameterTreeValue(scope.rid, 'mount',
 				'rates.tracking', 'DRIVE_SOLAR', function(data) {
 				});
 	});
 
 	scope.sequence.execute(function() {
-		return GloriaAPI.setParameterTreeValue(scope.rid, 'mount',
+		return $gloriaAPI.setParameterTreeValue(scope.rid, 'mount',
 				'rates.slew', 'CENTER', function(data) {
 				});
 	});
 
 	scope.sequence.execute(function() {
-		return GloriaAPI.executeOperation(scope.rid, 'set_tracking_rate',
+		return $gloriaAPI.executeOperation(scope.rid, 'set_tracking_rate',
 				function(data) {
 				});
 	});
 
 	scope.sequence.execute(function() {
-		return GloriaAPI.executeOperation(scope.rid, 'set_slew_rate', function(
+		return $gloriaAPI.executeOperation(scope.rid, 'set_slew_rate', function(
 				data) {
 		});
 	});
 }
 
-function PointToTarget(GloriaAPI, scope) {
+function PointToTarget($gloriaAPI, scope) {
 	scope.pointDone = false;
 	scope.pointingEnabled = false;
 	scope.sunIconStyle.opacity = 0.3;
@@ -74,19 +74,19 @@ function PointToTarget(GloriaAPI, scope) {
 	scope.inAction = true;
 	scope.$parent.arrowsEnabled = false;
 
-	return GloriaAPI.executeOperation(scope.rid, 'point_to_object', function(
+	return $gloriaAPI.executeOperation(scope.rid, 'point_to_object', function(
 			data) {
 		scope.inAction = false;
 		scope.pointDone = true;
 		scope.targetMessage = scope.messages.pointed;
-		SetMountStatus(GloriaAPI, scope, 'POINTED');
+		SetMountStatus($gloriaAPI, scope, 'POINTED');
 	}, function(error) {
 		scope.inAction = false;
 		alert(error);
 	});
 }
 
-function MoveMount(GloriaAPI, scope, direction) {
+function MoveMount($gloriaAPI, scope, direction) {
 
 	var operation = '';
 
@@ -106,7 +106,7 @@ function MoveMount(GloriaAPI, scope, direction) {
 
 	scope.inAction = true;
 	scope.$parent.arrowsEnabled = false;
-	return GloriaAPI.executeOperation(scope.rid, operation, function(data) {
+	return $gloriaAPI.executeOperation(scope.rid, operation, function(data) {
 		scope.targetMessage = scope.messages.movementDone;
 	}, function(error) {
 		scope.targetMessage = scope.messages.movementError;
@@ -123,7 +123,7 @@ function SetTargetMessage(scope) {
 	}
 }
 
-function SolarMountCtrl(GloriaAPI, $sequenceFactory, $scope, $timeout) {
+function SolarMountCtrl($gloriaAPI, $sequenceFactory, $scope, $timeout) {
 
 	$scope.sequence = $sequenceFactory.getSequence();
 	$scope.targetReady = false;
@@ -159,7 +159,7 @@ function SolarMountCtrl(GloriaAPI, $sequenceFactory, $scope, $timeout) {
 		if ($scope.$parent.movementRequested
 				&& $scope.$parent.movementDirection != null
 				&& $scope.$parent.movementDirection != undefined) {
-			MoveMount(GloriaAPI, $scope, $scope.$parent.movementDirection)
+			MoveMount($gloriaAPI, $scope, $scope.$parent.movementDirection)
 					.then(
 							function() {
 								$scope.status.time.messageTimer = $timeout(
@@ -174,13 +174,13 @@ function SolarMountCtrl(GloriaAPI, $sequenceFactory, $scope, $timeout) {
 
 			console.log("mount controller started!");
 			$scope.sequence.execute(function() {
-				return GetMountStatus(GloriaAPI, $scope);
+				return GetMountStatus($gloriaAPI, $scope);
 			}).then(function() {
 
 				SetTargetMessage($scope);
 
 				if ($scope.status.context == 'INIT') {
-					SetTargetName(GloriaAPI, $scope);
+					SetTargetName($gloriaAPI, $scope);
 				} else if ($scope.status.context == 'TARGET_SET') {
 					$scope.targetReady = true;
 					$scope.pointingEnabled = true;
@@ -200,7 +200,7 @@ function SolarMountCtrl(GloriaAPI, $sequenceFactory, $scope, $timeout) {
 
 	$scope.pointToTarget = function() {
 		if ($scope.pointingEnabled && $scope.targetReady) {
-			PointToTarget(GloriaAPI, $scope).then(
+			PointToTarget($gloriaAPI, $scope).then(
 					function() {
 						$scope.status.time.pointingTimer = $timeout(
 								$scope.status.time.reenablePointing, 30000);

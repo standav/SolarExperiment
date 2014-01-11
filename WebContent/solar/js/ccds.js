@@ -1,8 +1,8 @@
 'use strict';
 
-function LoadCCDContent(GloriaAPI, scope) {
+function LoadCCDContent($gloriaAPI, scope) {
 	return scope.sequence.execute(function() {
-		return GloriaAPI.getParameterTreeValue(scope.rid, 'cameras', 'ccd',
+		return $gloriaAPI.getParameterTreeValue(scope.rid, 'cameras', 'ccd',
 				function(data) {
 					console.log(data);
 					scope.ccds = data.images.slice(0, 2);
@@ -10,9 +10,9 @@ function LoadCCDContent(GloriaAPI, scope) {
 	});
 }
 
-function LoadFocuserContent(GloriaAPI, scope) {
+function LoadFocuserContent($gloriaAPI, scope) {
 	return scope.sequence.execute(function() {
-		return GloriaAPI.getParameterValue(scope.rid, 'focuser',
+		return $gloriaAPI.getParameterValue(scope.rid, 'focuser',
 				function(data) {
 					console.log(data);
 					scope.focuser = data;
@@ -30,17 +30,17 @@ function LoadFocuserContent(GloriaAPI, scope) {
 	});
 }
 
-function LoadContinuousImage(GloriaAPI, scope, order) {
+function LoadContinuousImage($gloriaAPI, scope, order) {
 
 	scope.sequence.execute(function() {
-		return GloriaAPI.setParameterTreeValue(scope.rid, 'cameras',
+		return $gloriaAPI.setParameterTreeValue(scope.rid, 'cameras',
 				'ccd.order', order, function() {
 					scope.ccdSelected = order;
 				});
 	});
 
 	scope.sequence.execute(function() {
-		return GloriaAPI.executeOperation(scope.rid, 'stop_continuous_image',
+		return $gloriaAPI.executeOperation(scope.rid, 'stop_continuous_image',
 				function() {
 					scope.continuousMode = false;
 				}, function(error) {
@@ -49,7 +49,7 @@ function LoadContinuousImage(GloriaAPI, scope, order) {
 	});
 
 	return scope.sequence.execute(function() {
-		return GloriaAPI.executeOperation(scope.rid, 'load_continuous_image',
+		return $gloriaAPI.executeOperation(scope.rid, 'load_continuous_image',
 				function() {
 					scope.continuousMode = true;
 				}, function(error) {
@@ -58,39 +58,39 @@ function LoadContinuousImage(GloriaAPI, scope, order) {
 	});
 }
 
-function SetFocuserPosition(GloriaAPI, scope) {
+function SetFocuserPosition($gloriaAPI, scope) {
 
 	scope.status.main.focuser.valueSet = false;
 
 	scope.sequence.execute(function() {
-		return GloriaAPI.setParameterTreeValue(scope.rid, 'focuser', 'steps',
+		return $gloriaAPI.setParameterTreeValue(scope.rid, 'focuser', 'steps',
 				scope.focuser.exp_offset, function(data) {
 					// PUT SOMETHING HERE!!
 				});
 	});
 
 	scope.sequence.execute(function() {
-		return GloriaAPI.setParameterTreeValue(scope.rid, 'focuser',
+		return $gloriaAPI.setParameterTreeValue(scope.rid, 'focuser',
 				'last_offset', scope.focuser.offset, function(data) {
 					scope.focuser.last_offset = scope.focuser.offset;
 				});
 	});
 
 	return scope.sequence.execute(function() {
-		return GloriaAPI.executeOperation(scope.rid, 'move_focus', function(
+		return $gloriaAPI.executeOperation(scope.rid, 'move_focus', function(
 				data) {
 			scope.status.main.focuser.valueSet = true;
 		});
 	});
 }
 
-function SetExposureTime(GloriaAPI, scope) {
+function SetExposureTime($gloriaAPI, scope) {
 
 	scope.status.main.exposure.valueSet = false;
 
 	if (scope.ccdSelected != 0) {
 		scope.sequence.execute(function() {
-			return GloriaAPI.setParameterTreeValue(scope.rid, 'cameras',
+			return $gloriaAPI.setParameterTreeValue(scope.rid, 'cameras',
 					'ccd.order', 0, function() {
 						scope.ccdSelected = 0;
 					});
@@ -98,7 +98,7 @@ function SetExposureTime(GloriaAPI, scope) {
 	}
 
 	scope.sequence.execute(function() {
-		return GloriaAPI.setParameterTreeValue(scope.rid, 'cameras',
+		return $gloriaAPI.setParameterTreeValue(scope.rid, 'cameras',
 				'ccd.images.[0].exposure', scope.ccds[0].exposure, function(
 						data) {
 					// PUT SOMETHING HERE!!
@@ -106,24 +106,24 @@ function SetExposureTime(GloriaAPI, scope) {
 	});
 
 	return scope.sequence.execute(function() {
-		return GloriaAPI.executeOperation(scope.rid, 'set_exposure', function(
+		return $gloriaAPI.executeOperation(scope.rid, 'set_exposure', function(
 				data) {
 			scope.status.main.exposure.valueSet = true;
 		});
 	});
 }
 
-function LoadCCDAttributes(GloriaAPI, scope, order) {
+function LoadCCDAttributes($gloriaAPI, scope, order) {
 
 	scope.sequence.execute(function() {
-		return GloriaAPI.setParameterTreeValue(scope.rid, 'cameras',
+		return $gloriaAPI.setParameterTreeValue(scope.rid, 'cameras',
 				'ccd.order', order, function() {
 					scope.ccdSelected = order;
 				});
 	});
 
 	return scope.sequence.execute(function() {
-		return GloriaAPI.executeOperation(scope.rid, 'get_ccd_attributes',
+		return $gloriaAPI.executeOperation(scope.rid, 'get_ccd_attributes',
 				function(data) {
 
 				}, function(error) {
@@ -132,30 +132,30 @@ function LoadCCDAttributes(GloriaAPI, scope, order) {
 	});
 }
 
-function CheckExposure(GloriaAPI, scope, timeout) {
+function CheckExposure($gloriaAPI, scope, timeout) {
 	scope.status.main.exposure.timer = timeout(
 			scope.status.main.exposure.check, 1000);
 }
 
-function StartExposure(GloriaAPI, scope, timeout) {
+function StartExposure($gloriaAPI, scope, timeout) {
 
 	scope.$parent.imageTaken = false;
 	scope.sequence.execute(function() {
-		return GloriaAPI.setParameterTreeValue(scope.rid, 'cameras',
+		return $gloriaAPI.setParameterTreeValue(scope.rid, 'cameras',
 				'ccd.order', 0, function() {
 					scope.ccdSelected = 0;
 				});
 	});
 
 	return scope.sequence.execute(function() {
-		return GloriaAPI.executeOperation(scope.rid, 'start_exposure',
+		return $gloriaAPI.executeOperation(scope.rid, 'start_exposure',
 				function(data) {
-					CheckExposure(GloriaAPI, scope, timeout);
+					CheckExposure($gloriaAPI, scope, timeout);
 				});
 	});
 }
 
-function SolarCCDCtrl(GloriaAPI, $scope, $timeout, $sequenceFactory) {
+function SolarCCDCtrl($gloriaAPI, $scope, $timeout, $sequenceFactory) {
 
 	$scope.sequence = $sequenceFactory.getSequence();
 	$scope.finderImage = $scope.mainPath + '/img/wn3.gif';
@@ -228,17 +228,17 @@ function SolarCCDCtrl(GloriaAPI, $scope, $timeout, $sequenceFactory) {
 
 	$scope.status.main.exposure.check = function() {
 		$scope.sequence.execute(function() {
-			return GloriaAPI.getParameterTreeValue($scope.rid, 'cameras',
+			return $gloriaAPI.getParameterTreeValue($scope.rid, 'cameras',
 					'ccd.images.[0].inst', function(data) {
 						if (data.id >= 0) {
 							if (data.jpg != undefined && data.jpg != null) {
 								$scope.$parent.imageTaken = true;
 							} else {
 								$scope.sequence.execute(function() {
-									return GloriaAPI.executeOperation(
+									return $gloriaAPI.executeOperation(
 											$scope.rid, 'load_image_urls',
 											function() {
-												CheckExposure(GloriaAPI,
+												CheckExposure($gloriaAPI,
 														$scope, $timeout);
 											});
 								});
@@ -301,15 +301,15 @@ function SolarCCDCtrl(GloriaAPI, $scope, $timeout, $sequenceFactory) {
 	};
 
 	$scope.setExposureTime = function() {
-		SetExposureTime(GloriaAPI, $scope);
+		SetExposureTime($gloriaAPI, $scope);
 	};
 
 	$scope.setFocuserPosition = function() {
-		SetFocuserPosition(GloriaAPI, $scope);
+		SetFocuserPosition($gloriaAPI, $scope);
 	};
 
 	$scope.startExposure = function() {
-		StartExposure(GloriaAPI, $scope, $timeout);
+		StartExposure($gloriaAPI, $scope, $timeout);
 	};
 
 	$scope
@@ -318,9 +318,9 @@ function SolarCCDCtrl(GloriaAPI, $scope, $timeout, $sequenceFactory) {
 					function() {
 						if ($scope.rid > 0) {
 
-							LoadFocuserContent(GloriaAPI, $scope);
-							LoadCCDAttributes(GloriaAPI, $scope, 0);
-							LoadCCDContent(GloriaAPI, $scope)
+							LoadFocuserContent($gloriaAPI, $scope);
+							LoadCCDAttributes($gloriaAPI, $scope, 0);
+							LoadCCDContent($gloriaAPI, $scope)
 									.then(
 											function() {
 
@@ -330,14 +330,14 @@ function SolarCCDCtrl(GloriaAPI, $scope, $timeout, $sequenceFactory) {
 													if ($scope.ccds[i].cont == undefined
 															|| $scope.ccds[i].cont == null) {
 														LoadContinuousImage(
-																GloriaAPI,
+																$gloriaAPI,
 																$scope, i);
 														upToDate = false;
 													}
 												}
 
 												if (!upToDate) {
-													LoadCCDContent(GloriaAPI,
+													LoadCCDContent($gloriaAPI,
 															$scope)
 															.then(
 																	function() {

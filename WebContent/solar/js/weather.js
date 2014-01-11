@@ -1,8 +1,8 @@
 'use strict';
 
-function LoadWeatherValues(GloriaAPI, scope) {
+function LoadWeatherValues($gloriaAPI, scope) {
 	return scope.sequence.execute(function() {
-		return GloriaAPI.executeOperation(scope.rid, 'load_weather_values',
+		return $gloriaAPI.executeOperation(scope.rid, 'load_weather_values',
 				function(data) {
 				}, function(error) {
 					// alert(error);
@@ -10,9 +10,9 @@ function LoadWeatherValues(GloriaAPI, scope) {
 	});
 }
 
-function LoadWeatherContent(GloriaAPI, scope) {
+function LoadWeatherContent($gloriaAPI, scope) {
 	return scope.sequence.execute(function() {
-		return GloriaAPI.getParameterValue(scope.rid, 'weather',
+		return $gloriaAPI.getParameterValue(scope.rid, 'weather',
 				function(data) {
 					scope.wind.value = data.wind.value;
 					scope.wind.high = scope.wind.value > 7;
@@ -30,7 +30,7 @@ function LoadWeatherContent(GloriaAPI, scope) {
 	});
 }
 
-function SolarWeatherCtrl(GloriaAPI, $sequenceFactory, $scope, $timeout) {
+function SolarWeatherCtrl($gloriaAPI, $sequenceFactory, $scope, $timeout) {
 
 	$scope.sequence = $sequenceFactory.getSequence();
 	$scope.wind = {
@@ -58,8 +58,8 @@ function SolarWeatherCtrl(GloriaAPI, $sequenceFactory, $scope, $timeout) {
 
 	$scope.status.time.onTimeout = function() {
 
-		LoadWeatherValues(GloriaAPI, $scope);
-		LoadWeatherContent(GloriaAPI, $scope).then(
+		LoadWeatherValues($gloriaAPI, $scope);
+		LoadWeatherContent($gloriaAPI, $scope).then(
 				function() {
 					$scope.status.time.timer = $timeout(
 							$scope.status.time.onTimeout, 10000, 0);

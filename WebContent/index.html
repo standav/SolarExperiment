@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="https://rawgithub.com/fserena/GLORIAAuthoringTool/master/WebContent/bootstrap/css/bootstrap.css" rel="stylesheet">
 <!-- <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">-->
-<link href="base/css/animations.css" rel="stylesheet"></link>
-<link href="base/css/custom.css" rel="stylesheet"></link>
-<link href="base/css/layout.css" rel="stylesheet"></link>
-<link href="base/img/favicon.ico" rel="icon">
+<link href="https://rawgithub.com/fserena/GLORIAAuthoringTool/master/WebContent/base/css/animations.css" rel="stylesheet"></link>
+<link href="https://rawgithub.com/fserena/GLORIAAuthoringTool/master/WebContent/base/css/custom.css" rel="stylesheet"></link>
+<link href="https://rawgithub.com/fserena/GLORIAAuthoringTool/master/WebContent/base/css/layout.css" rel="stylesheet"></link>
+<link href="https://rawgithub.com/fserena/GLORIAAuthoringTool/master/WebContent/base/img/favicon.ico" rel="icon">
 <script
 	src=https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.min.js></script>
-<script src=bootstrap/js/bootstrap.min.js></script>
+<script src=https://rawgithub.com/fserena/GLORIAAuthoringTool/master/WebContent/bootstrap/js/bootstrap.min.js></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-tooltip.min.js"></script>
 <script
@@ -28,203 +28,34 @@
 <script src=https://cdn.lfrs.sl/alloyui.com/2.0.0pr6/aui/aui-min.js></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.7.0/ui-bootstrap-tpls.min.js"></script>
-<script src="base/js/gloriapi.js"></script>
-<script src="base/js/locale.js"></script>
-<script src="base/js/view.js"></script>
-<script src="base/js/app.js"></script>
-<script src="base/js/main.js"></script>
-<script src="base/js/login.js"></script>
-<script src="base/js/script.js"></script>
-<script src="base/js/navbar.js"></script>
+<script src="https://rawgithub.com/fserena/GLORIAAuthoringTool/master/WebContent/base/js/gloriapi.js"></script>
+<script src="https://rawgithub.com/fserena/GLORIAAuthoringTool/master/WebContent/base/js/locale.js"></script>
+<script src="https://rawgithub.com/fserena/GLORIAAuthoringTool/master/WebContent/base/js/view.js"></script>
+<script src="https://rawgithub.com/fserena/GLORIAAuthoringTool/master/WebContent/base/js/app.js"></script>
+<script src="https://rawgithub.com/fserena/GLORIAAuthoringTool/master/WebContent/base/js/main.js"></script>
+<script src="https://rawgithub.com/fserena/GLORIAAuthoringTool/master/WebContent/base/js/login.js"></script>
+<script src="https://rawgithub.com/fserena/GLORIAAuthoringTool/master/WebContent/base/js/script.js"></script>
+<script src="https://rawgithub.com/fserena/GLORIAAuthoringTool/master/WebContent/base/js/navbar.js"></script>
 <title ng-show="titleLoaded">{{'title.browser' | i18n}}</title>
 </head>
+
 <body ng-controller="MainController"
-	style="padding-top: 40px; background-attachment: fixed; background-image: url('base/img/main_bg.jpg'); color: silver;">
+	style="padding-top: 40px; background-attachment: fixed; background-color: black; background-image: url('https://rawgithub.com/fserena/GLORIAAuthoringTool/master/WebContent/base/img/main_bg.jpg'); color: silver;">
 
 	<div class="page-wrap" ng-controller="LoginController">
 		<div id="header">
-			<div ng-controller="LocaleController"
-				class="navbar navbar-inverse navbar-fixed-top">
-				<div class="navbar-inner">
-					<div class="container">
-						<a class="pull-left" style="margin-top: 4px; cursor: pointer;"><img
-							ng-click="gotoHub()" style="margin-left: -8px"
-							src="base/img/logos/gloria_logo_small.png"></a>
-						<div class="pull-right"
-							style="height: 22px; margin-top: 10px; margin-left: 20px">
-							<img ng-repeat="lang in languages" ng-click="setLanguage($index)"
-								style="cursor: pointer; height: 100%; margin-left: 1px"
-								ng-src="base/img/flags/{{lang}}.png">
-						</div>
-						<div class="animate-show" ng-show="verified">
-							<div ng-hide="login.user">
-								<form action="" ng-submit="login.connect()"
-									class="navbar-form pull-right">
-									<input ng-model="login.email" name="email" class="span2"
-										type="text" placeholder="Email" required /> <input
-										ng-model="login.password" class="span2" name="password"
-										type="password" placeholder="Password" required />
-									<button class="btn btn-inverse" type="submit">{{'base.login.in'
-										|i18n}}</button>
-								</form>
-							</div>
-							<div ng-show="login.user">
-								<button type="submit" class="pull-right btn btn-inverse"
-									ng-click="login.disconnect()">{{'base.login.out'
-									|i18n}}</button>
-								<div class="span3 pull-right ng-binding"
-									style="padding-top: 10px; padding-right: 5px; margin-right: 20px; text-align: right">{{'base.login.welcome'
-									| i18n}}, {{login.user}}</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			<div ng-include src="headerHtml"></div>
 			<div ng-include src="navbarHtml"></div>
 		</div>
-		<div id="body" class="container" style="opacity: 1.0;">
+		<div ng-if="headerReady && navReady" id="body" class="container"
+			style="opacity: 1.0;">
 			<div ng-if="login.user != null && login.user != undefined">
 				<div ng-view></div>
 			</div>
 		</div>
 	</div>
-	<div style="position: relative">
-		<div class="site-footer"
-			style="background-color: rgba(0, 0, 0, 0.5); border-top: 1px solid #222">
-			<div class="container"
-				style="background-color: rgba(0, 0, 0, 0.2); padding: 5px 10px 0px; border-left: 1px solid #080808; border-right: 1px solid #080808;">
-				<div>
-					<aside>
-						<h5>{{'base.footer.ack.header' | i18n}}</h5>
-						<div>
-							<table>
-								<tbody>
-									<tr>
-										<td
-											style="vertical-align: top; text-align: justify; padding-right: 5px"><span
-											style="font-size: 0.9em;">{{'base.footer.ack.content'
-												| i18n}}</span></td>
-										<td style="padding-left: 4px; width: 102px"><a
-											href="http://europa.eu" target="_blank"> <img
-												src="base/img/flags/eu-flag-small.png"
-												style="border: 1px solid #000">
-										</a></td>
-										<td style="padding-left: 4px; width: 83px"><a
-											href="http://cordis.europa.eu/fp7/" target="_blank"> <img
-												src="base/img/logos/fp7-logo-small.png"
-												style="border: 1px solid #000">
-										</a></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</aside>
-					<aside>
-						<h5>{{'base.footer.partners.header' | i18n}}</h5>
-						<div>
-							<table>
-								<tbody>
-									<tr>
-										<td><a href="http://www.upm.es/" target="_blank"
-											title="Universidad Polit�cnica de Madrid"> <img
-												style="height: 48px; margin-right: 3px"
-												src="base/img/logos/logo-upm.jpg">
-										</a></td>
-										<td><a href="http://www.asu.cas.cz/" target="_blank"
-											title="Astronomical Institute of Academy of Sciences of the Czech Republic">
-												<img style="height: 48px; margin-right: 3px"
-												src="base/img/logos/logo-auav.jpg">
-										</a></td>
-										<td><a href="http://www.csic.es/" target="_blank"
-											title="Consejo Superior de Investigaciones Cient�ficas">
-												<img style="height: 48px; margin-right: 3px"
-												src="base/img/logos/logo-csic.jpg">
-										</a></td>
-										<td><a href="http://www.cvut.cz" target="_blank"
-											title="Czech Technical University"> <img
-												style="height: 48px; margin-right: 3px"
-												src="base/img/logos/logo-cvut.jpg">
-										</a></td>
-										<td><a href="http://www.fzu.cz/" target="_blank"
-											title="Institute of Physics of the Academy of Sciences of the Czech Republic">
-												<img style="height: 48px; margin-right: 3px"
-												src="base/img/logos/logo-ascr.jpg">
-										</a></td>
-										<td><a href="http://www.iac.es/" target="_blank"
-											title="Instituto de Astrofisica de Canarias"> <img
-												style="height: 48px; margin-right: 3px"
-												src="base/img/logos/logo-iac.jpg">
-										</a></td>
-										<td><a href="http://www.inaf.it/" target="_blank"
-											title="Istituto Nazionale di Astrofisica"> <img
-												style="height: 48px; margin-right: 3px"
-												src="base/img/logos/logo-inaf.jpg">
-										</a></td>
-										<td><a href="http://www.sao.ru/" target="_blank"
-											title="Special Astrophysical Observatory of Russian Academy of Sciences">
-												<img style="height: 48px; margin-right: 3px"
-												src="base/img/logos/logo-sao.jpg">
-										</a></td>
-										<td><a href="http://www.ucd.ie/" target="_blank"
-											title="University College Dublin"> <img
-												style="height: 48px; margin-right: 3px"
-												src="base/img/logos/logo-ucd.jpg">
-										</a></td>
-										<td><a href="http://www.uchile.cl/" target="_blank"
-											title="University of Chile"> <img
-												style="height: 48px; margin-right: 3px"
-												src="base/img/logos/logo-uc.jpg">
-										</a></td>
-										<td><a href="http://www.uma.es/" target="_blank"
-											title="Universidad de Malaga"> <img
-												style="height: 48px; margin-right: 3px"
-												src="base/img/logos/logo-uma.jpg">
-										</a></td>
-										<td><a href="http://www.ox.ac.uk/" target="_blank"
-											title="University of Oxford"> <img
-												style="height: 48px; margin-right: 3px"
-												src="base/img/logos/logo-uoxf.jpg">
-										</a></td>
-										<td><a href="http://www.uw.edu.pl/" target="_blank"
-											title="Uniwersytet Warszawski"> <img
-												style="height: 48px; margin-right: 3px"
-												src="base/img/logos/logo-uwar.jpg">
-										</a></td>
-									</tr>
-								</tbody>
-							</table>
-							<br>
-							<!-- <hr>-->
-							<a rel="license"
-								href="http://creativecommons.org/licenses/by/3.0/"> <img
-								alt="Creative Commons License"
-								style="margin-top: 3px; border-width: 0; float: left; padding-right: 10px"
-								src="http://i.creativecommons.org/l/by/3.0/80x15.png">
-							</a> <span xmlns:dct="http://purl.org/dc/terms/"
-								href="http://purl.org/dc/dcmitype/Text"> <small>{{'base.footer.license.own.pre'
-									|i18n}} </small><a xmlns:cc="http://creativecommons.org/ns#"
-								href="http://gloria-project.eu/" property="cc:attributionName"
-								rel="cc:attributionURL" style="font-weight: bold"><small>{{'base.footer.license.own.project'
-										|i18n}}</small></a> <small>{{'base.footer.license.own.post1'
-									|i18n}}</small><a rel="license"
-								href="http://creativecommons.org/licenses/by/3.0/"
-								style="font-weight: bold"> <small>{{'base.footer.license.own.name'
-										|i18n}}</small></a> <small>{{'base.footer.license.own.post2'
-									|i18n}}</small><a class="subfoot"
-								href="http://creativecommons.org/policies#license"
-								style="font-weight: bold"><small>
-										{{'base.footer.license.own.other' |i18n}}</small></a>.
-							</span>
-						</div>
-					</aside>
-				</div>
-				<p>
-					<small><i> {{'base.footer.author.pre' |i18n}} (<a>
-								{{'base.footer.author.email' |i18n}}</a>) @
-					</i><a href="http://www.gloria-project.eu/" rel="external">Gloria-project</a></small>
-				</p>
-			</div>
-		</div>
+	<div ng-if="headerReady && navReady" style="position: relative">
+		<div ng-include src="footerHtml"></div>
 	</div>
 </body>
 </html>
