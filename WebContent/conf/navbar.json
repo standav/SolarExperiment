@@ -2,8 +2,41 @@
 	"home": {
 		"text": "navbar.titles.home",
 		"href": {
-			"app": "GLORIAHub",
+			"app": "",
 			"path": "/"
 		}
+	},
+	"experiments": {
+		"text": "navbar.titles.experiments.header",
+		"child": [			
+			{
+				"type": "header",
+				"text": "navbar.titles.experiments.reservations.header"			
+			},
+			{
+				"type": "link",
+				"text": "navbar.titles.experiments.reservations.new",
+				"href": {
+					"app": "reservations",
+					"path": "/new"
+				}
+			},
+			{
+				"type": "link",
+				"text": "navbar.titles.experiments.reservations.pending",
+				"href": {
+					"app": "reservations",
+					"path": "/pending"
+				}
+			}		
+		]	
+	},
+	"images": {
+		"text": "navbar.titles.images.header",
+		"href": {
+			"app": "",
+			"path": "/images"
+		}
+			
 	}
 }

@@ -2,7 +2,7 @@
 <link href="solar/css/styles.css" rel="stylesheet"></link>
 
 <!-- Experiment container -->
-<div ng-controller="SolarMainCtrl">
+<div ng-show="solarReady" ng-controller="SolarMainCtrl">
 	<div class="page-header" style="border: none; margin-bottom: 10px">
 		<div class="row" style="margin-bottom: 0px">
 			<h2 class="test" style="margin-left: 18px">{{'solar.header'|i18n}}</h2>

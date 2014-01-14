@@ -12,11 +12,5 @@
 			"solar/js/scams.js",
 			"solar/js/weather.js"
 		]
-	},
-	"wrong": {
-		"type": "wrong-path",
-		"path": "/wrong",
-		"html": "base/html/wrong.html",
-		"js": []		
 	}
 }
