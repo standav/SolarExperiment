@@ -1,7 +1,7 @@
 {
 	"solar": {
 		"type": "main",
-		"path": "/",
+		"path": "/view",
 		"html": "solar/html/parent.html",
 		"js": [
 			"solar/js/main.js",
@@ -15,8 +15,6 @@
 	},
 	"wrong": {
 		"type": "wrong-path",
-		"path": "/wrong",
-		"html": "https://rawgithub.com/fserena/GLORIAAuthoringTool/master/WebContent/toolbox/html/wrong.html",
-		"js": []		
+		"path": "/view"
 	}
 }
