@@ -1,7 +1,7 @@
 .shadow {
-	-moz-box-shadow: 0px 0px 2px 3px rgba(0, 136, 204, 0.19);
-	-webkit-box-shadow: 0px 0px 2px 3px rgba(0, 136, 204, 0.19);
-	box-shadow: 0px 0px 2px 3px rgba(0, 136, 204, 0.19);
+	-moz-box-shadow: 0px 0px 2px 3px rgba(45, 95, 128, 0.12);
+	-webkit-box-shadow: 0px 0px 2px 3px rgba(45, 95, 128, 0.12);
+	box-shadow: 0px 0px 2px 3px rgba(45, 95, 128, 0.12);
 }
 
 .scam-margin {
@@ -40,9 +40,10 @@
 	position: relative;
 	border: 1px solid rgba(0, 0, 0, 0.45);
 	margin-right: 5px;
+	margin-bottom: 3px;
 	float: left;
 	width: 30%;
-	height: 75px;
+	height: 67px;
 	background-size: 100%;
 	background-position: 0 -10px;
 	background-image:
@@ -206,4 +207,11 @@ input[type="range"]::slider-thumb {
 	opacity: 0.5;
 	width: 10px;
 	height: 26px;
+}
+
+.title {
+	background-color: rgba(192, 192, 192, 0.14);
+	color: silver;
+	/*background-color: #151515;
+	color: rgb(168, 168, 168);*/
 }

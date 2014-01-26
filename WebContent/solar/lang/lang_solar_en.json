@@ -1,17 +1,43 @@
 {
 	"header" : "Solar experiment",
+	"reservation": {
+		"obsolete": {
+			"l1": "The reservation id @{p1}@ is obsolete",
+			"l2": "Want to get a new one?. Click",
+			"here": "here"
+		},
+		"unknown": "The reservation id @{p1}@ does not exist",
+		"loading": "Loading",
+		"problem": "The telescope is not working properly. Please try again in a few minutes",
+		"end": "Your reservation has ended, we hope you enjoyed the experiment!",
+		"login": "Your are not logged in. Redirecting",
+		"nvalid" : "The reservation id @{p1}@ is not valid"		
+	},
 	"blocks": {
 		"purpose": {
 			"title": "Purpose",
-			"content": ""
+			"content": "This experiment aims to get as much images of the solar photosphere as possible. The better the image, the more accurate measurement of solar activity we get"
 		},
 		"tel_desc": { 
 			"title": "Telescope description",
-			"content": ""
+			"content": "This experiment interacts with the TADs installed at the Observatorio del Teide in Tenerife"
 		},
 		"target": { 
 			"title": "Target",
-			"content": ""
+			"loading": "Loading",
+			"point": "Asking TADs to point to the Sun",
+			"request": "Just click on the Sun to start pointing",
+			"pointed": "Once the Sun is visible, you can use the finder arrows to center",
+			"moving-e": "Moving to the east",
+			"moving-n": "Moving to the north",
+			"moving-s": "Moving to the south",
+			"moving-w": "Moving to the west",
+			"move-e": "Move east",
+			"move-n": "Move north",
+			"move-s": "Move south",
+			"move-w": "Move west",
+			"done": "Done",
+			"error": "An error has occurred"
 		},
 		"finder": {
 			"title": "Finder",
@@ -19,27 +45,37 @@
 		},
 		"exterior": {
 			"title": "Exterior view",
-			"content": ""
+			"open": "Open the dome",
+			"close": "Close the dome"
 		},
 		"tel_sight": {
 			"title": "Telescope sight",
-			"content": ""
+			"incexp": "Increase exposure time",
+			"decexp": "Decrease exposure time",
+			"setexp": "Set exposure time",
+			"incstep": "Increase focuser steps",
+			"decstep": "Decrease focuser steps",
+			"move": "Update focus",
+			"take": "Take an image"
 		},
 		"weather": {
 			"title": "Weather conditions",
-			"content": ""
+			"looking": "Looking for weather information",
+			"rh": "Relative humidity",
+			"wind": "Wind speed"
+			
 		},
 		"elapsed": {
 			"title": "Elapsed time",
-			"content": ""
+			"calc": "Calculating",
+			"remaining": "@{p1}@ s remaining"
 		},
 		"images": {
 			"title": "Your images",
-			"content": ""
+			"took": "You took this image at"
 		},
 		"measure": {
-			"title": "Measure solar activity",
-			"content": ""
+			"title": "Measure solar activity"
 		}
 	}
 }

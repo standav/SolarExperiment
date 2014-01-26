@@ -25,6 +25,7 @@ function SolarImagesCtrl($gloriaAPI, $sequenceFactory, $scope, $timeout, $modal,
 	$scope.sequence = $sequenceFactory.getSequence();
 	$scope.images = [];
 	$scope.currentIndex = 0;
+	$scope.thumbsReady = true;	
 
 	$scope.items = [ 'item1', 'item2', 'item3' ];
 
@@ -38,11 +39,17 @@ function SolarImagesCtrl($gloriaAPI, $sequenceFactory, $scope, $timeout, $modal,
 			$scope.sliderStyle.left = "0px";
 		}
 	});
+	
+	$scope.latencyTimeout = function() {
+		$scope.thumbsReady = true;
+	};
 
 	$scope.$watch('imageTaken', function() {
-		if ($scope.rid > 0 && $scope.$parent.imageTaken) {
+		if ($scope.rid > 0 && $scope.$parent.imageTaken) {			
 			LoadMyImages($gloriaAPI, $scope).then(function() {
+				$scope.thumbsReady = false;	
 				$scope.currentIndex = Math.max(0, $scope.images.length - 6);
+				$scope.latencyTimer = $timeout($scope.latencyTimeout, 1000);
 			});
 		}
 	});
@@ -65,7 +72,7 @@ function SolarImagesCtrl($gloriaAPI, $sequenceFactory, $scope, $timeout, $modal,
 	};
 
 	$scope.$on('$destroy', function() {
-		// $timeout.cancel($scope.timer);
+		$timeout.cancel($scope.latencyTimer);
 	});
 
 	$scope.open = function(image) {

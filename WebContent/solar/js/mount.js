@@ -135,17 +135,17 @@ function SolarMountCtrl($gloriaAPI, $sequenceFactory, $scope, $timeout) {
 	};
 
 	$scope.messages = {
-		init : "Loading.",
-		settingTarget : "Setting up the target.",
-		pointing : "Asking TADs to point to the Sun.",
-		requestPoint : "Just click on the Sun to start pointing.",
-		pointed : "Once the Sun is visible, you can use the finder arrows to center.",
-		movingEast : "Moving to the east.",
-		movingWest : "Moving to the west.",
-		movingNorth : "Moving to the north.",
-		movingSouth : "Moving to the south.",
-		movementDone : "Done.",
-		movementError : "Sorry, an error has occured."
+		init : "solar.blocks.target.loading",
+		settingTarget : "solar.blocks.target.set",
+		pointing : "solar.blocks.target.point",
+		requestPoint : "solar.blocks.target.request",
+		pointed : "solar.blocks.target.pointed",
+		movingEast : "solar.blocks.target.moving-e",
+		movingWest : "solar.blocks.target.moving-w",
+		movingNorth : "solar.blocks.target.moving-n",
+		movingSouth : "solar.blocks.target.moving-s",
+		movementDone : "solar.blocks.target.done",
+		movementError : "solar.blocks.target.error"
 	};
 
 	$scope.targetMessage = $scope.messages.init;
@@ -203,7 +203,7 @@ function SolarMountCtrl($gloriaAPI, $sequenceFactory, $scope, $timeout) {
 			PointToTarget($gloriaAPI, $scope).then(
 					function() {
 						$scope.status.time.pointingTimer = $timeout(
-								$scope.status.time.reenablePointing, 30000);
+								$scope.status.time.reenablePointing, 5000);
 					});
 		}
 	};

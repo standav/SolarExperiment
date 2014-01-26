@@ -1,17 +1,43 @@
 {
 	"header" : "Experimento solar",
+	"reservation": {
+		"obsolete": {
+			"l1": "El identificador de reserva @{p1}@ es obsoleto",
+			"l2": "¿Quieres uno nuevo?. Haz click",
+			"here": "aquí"
+		},
+		"unknown": "El identificador de reserva @{p1}@ no existe",
+		"loading": "Cargando",
+		"problem": "Parece que el telescopio no está funcionando bien. Por favor, inténtalo de nuevo en unos minutos",
+		"end": "Tu reserva ha terminado, ¡Esperamos que hayas disfrutado!",
+		"login": "Sesión no iniciada. Redireccionando",
+		"nvalid" : "El identificador de reserva @{p1}@ no es válido"	
+	},
 	"blocks": {
 		"purpose": {
 			"title": "Objetivo",
-			"content": ""
+			"content": "Este experimento pretende generar el mayor número posible de imágenes de la fotosfera solar. Cuanto mejor sean las imágenes, más precisa será la medida diaria de la actividad solar que consigamos"
 		},
 		"tel_desc": { 
 			"title": "Descripción del telescopio",
-			"content": ""
+			"content": "El telescopio que estás usando es el TADs, ubicado en el Observatorio del Teide en Tenerife"
 		},
 		"target": { 
 			"title": "Objeto",
-			"content": ""
+			"loading": "Cargando",
+			"point": "Solicitando al TADs que apunte al Sol",
+			"request": "Haz click en el Sol para apuntar",
+			"pointed": "Una vez el Sol sea visible, utiliza las flechas para centrar",
+			"moving-e": "Moviendo al este",
+			"moving-n": "Moviendo al norte",
+			"moving-s": "Moviendo al sur",
+			"moving-w": "Moviendo al oeste",
+			"move-e": "Mover al este",
+			"move-n": "Mover al norte",
+			"move-s": "Mover al sur",
+			"move-w": "Mover al oeste",
+			"done": "Hecho",
+			"error": "Ha ocurrido un problema"
 		},
 		"finder": {
 			"title": "Buscador",
@@ -19,27 +45,36 @@
 		},
 		"exterior": {
 			"title": "Vista exterior",
-			"content": ""
+			"open": "Abrir la cúpula",
+			"close": "Cerrar la cúpula"
 		},
 		"tel_sight": {
 			"title": "Vista del telescopio",
-			"content": ""
+			"incexp": "Incrementar la exposición",
+			"decexp": "Decrementar la exposición",
+			"setexp": "Establecer tiempo de exposición",
+			"incstep": "Incrementar pasos de enfocador",
+			"decstep": "Decrementar pasos de enfocador",
+			"move": "Actualizar el foco",
+			"take": "Tomar una imagen"
 		},
 		"weather": {
 			"title": "Tiempo atmosférico",
-			"content": ""
+			"looking": "Recuperando información del tiempo",
+			"rh": "Humedad relativa",
+			"wind": "Velocidad del viento"
 		},
 		"elapsed": {
 			"title": "Tiempo de reserva",
-			"content": ""
+			"calc": "Calculando",
+			"remaining": "Quedan @{p1}@ s"
 		},
 		"images": {
 			"title": "Tus imágenes",
-			"content": ""
+			"took": "Tomaste esta imagen a las"
 		},
 		"measure": {
-			"title": "Mide la actividad solar",
-			"content": ""
+			"title": "Mide la actividad solar"
 		}
 	}
 }

@@ -14,50 +14,40 @@
 		<div ng-if="!reservationEnd">
 			<div ng-if="!deviceProblem">
 				<div ng-switch on="infoUpdated">
-					<div ng-switch-when="true" class="alert alert-info"
-						style="width: 40%; margin-left: 30%">
+					<div ng-switch-when="true" class="alert alert-g"
+						style="width: 40%; margin-left: 30%; margin-top: 20px">
 						<div ng-show="reservationObsolete">
-							<strong>Sorry!</strong> You do not have a reservation for this
-							experiment.<br>Want to have one? Click<a
-								href="#/experiments/available"> here.</a>
+							{{'solar.reservation.obsolete.l1'|i18n:preRid}}.<br>{{'solar.reservation.obsolete.l2'|i18n}}<a
+								href="#/experiments/available" style="color: #0F0F0F">
+								{{'solar.reservation.obsolete.here'|i18n}}</a>.
 						</div>
 						<div ng-show="!reservationObsolete">
-							<strong>Hey!</strong> The reservation id <strong>{{preRid}}</strong>
-							never existed.
-						</div>
+							{{'solar.reservation.unknown'|i18n:preRid}}.</div>
 					</div>
 					<div ng-switch-when="true" ng-show="!infoUpdated"
-						class="alert alert-info mess-info"
-						style="width: 30%; margin-left: 35%">
-						<strong>Loading.</strong> Please wait...
-					</div>
+						class="alert alert-g mess-info"
+						style="width: 30%; margin-left: 35%; margin-top: 20px">
+						{{'solar.reservation.loading'|i18n}}...</div>
 				</div>
-				<div ng-show="deviceProblem" class="alert alert-info"
-					style="width: 50%; margin-left: 25%">
-					<strong>Sorry!</strong> The telescope is not working properly.
-					Please try again in a few minutes.
-				</div>
-			</div>
-			<div ng-show="reservationEnd" class="alert alert-info"
-				style="width: 50%; margin-left: 25%">
-				<strong>Oh!</strong> Your reservation has ended, we hope you enjoyed
-				the experiment!.
+				<div ng-show="deviceProblem" class="alert alert-g"
+					style="width: 50%; margin-left: 25%; margin-top: 20px">
+					{{'solar.reservation.problem'|i18n}}.</div>
 			</div>
 		</div>
 	</div>
-	<div class="animate-show alert" ng-if="notAuthorized"
-		style="width: 40%; margin-left: 30%">
-		<strong>Oops!</strong> Your are not logged in. Redirecting...
-	</div>
-	<div class="animate-show alert" ng-if="wrongReservation"
-		style="width: 40%; margin-left: 30%">
-		<strong>Oops!</strong> The reservation id <strong>{{requestRid}}</strong>
-		is not valid.
-	</div>
+	<div ng-if="reservationEnd" class="alert alert-g"
+		style="width: 50%; margin-left: 25%; margin-top: 20px">
+		{{'solar.reservation.end'|i18n}}.</div>
+	<div class="animate-show alert alert-g" ng-if="notAuthorized"
+		style="width: 40%; margin-left: 30%; margin-top: 20px">
+		{{'solar.reservation.login'|i18n}}...</div>
+	<div class="animate-show alert alert-g" ng-if="wrongReservation"
+		style="width: 40%; margin-left: 30%; margin-top: 20px">
+		{{'solar.reservation.nvalid'|i18n:preRid}}</div>
 	<div class="animate-show"
 		ng-show="!deviceProblem && reservationActive && !notAuthorized"
 		ng-class="{'transparent': reservationEnd || notAuthorized || ccdProblem}">
-		
+
 		<div ng-include src="specificHtml"></div>
 	</div>
 </div>

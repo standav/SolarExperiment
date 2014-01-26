@@ -8,9 +8,9 @@ function LoadRemainingTime($gloriaAPI, scope) {
 	}).then(function() {
 	}, function(response) {
 		if (response.status == 406) {
-			scope.$parent.$parent.reservationEnd = true;
+			scope.$parent.$parent.$parent.reservationEnd = true;
 		} else if (response.status == 401) {
-			scope.$parent.$parent.notAuthorized = true;
+			scope.$parent.$parent.$parent.notAuthorized = true;
 		}
 	});
 }
@@ -24,12 +24,13 @@ function LoadElapsedTime($gloriaAPI, scope) {
 					/ (scope.total / 100))
 					+ "%";			
 			
-			if (scope.remaining <= 15) {
+			if (scope.remaining <= 60) {
 				scope.fewSecondsLeft = true;
+				scope.progressStyle.backgroundColor = '#FF9900';
 			}
 			
 			scope.loaded = true;
-			scope.$parent.$parent.elapsedTimeLoaded = true;
+			scope.$parent.$parent.$parent.elapsedTimeLoaded = true;
 		});
 	});
 }

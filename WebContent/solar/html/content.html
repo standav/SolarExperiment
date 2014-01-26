@@ -1,38 +1,32 @@
 <div class="row">
 	<div class="span5" style="cursor: default">
 		<div align="center">
-			<h5 class="label-info"
-				style="margin-top: 0px; background-color: rgba(0, 136, 204, 0.13)">{{'solar.blocks.purpose.title'|i18n}}</h5>
+			<h5 class="label-info title" style="margin-top: 0px">{{'solar.blocks.purpose.title'|i18n}}</h5>
 		</div>
-		<div class="info-text">Nam ac nisi quis sapien interdum
-			accumsan. Cras volutpat elit vitae libero dapibus sagittis. Mauris
-			imperdiet pretium justo, ac hendrerit ante mattis sed. Fusce non
-			tempor velit, quis varius odio.</div>
+		<div class="info-text" style="font-size: 0.9em; line-height: 20px;">{{'solar.blocks.purpose.content'|i18n}}.</div>
 	</div>
 	<div class="span4" style="cursor: default">
 		<div align="center">
-			<h5 class="label-info"
-				style="margin-top: 0px; background-color: rgba(0, 136, 204, 0.13)">{{'solar.blocks.tel_desc.title'|i18n}}</h5>
+			<h5 class="label-info title" style="margin-top: 0px">{{'solar.blocks.tel_desc.title'|i18n}}</h5>
 		</div>
 		<div class="telescope-desc" style="margin-top: 1px">
 			<a
-				style="position: absolute; width: 100%; height: 100%; text-decoration: none; background-color: #FFF, opacity:0; filter: alpha(opacity =     1);"
+				style="position: absolute; width: 100%; height: 100%; text-decoration: none; background-color: #FFF, opacity:0; filter: alpha(opacity = 1);"
 				href="http://gloria-project.eu/tag/tad-en/" target="about_blank"></a>
 		</div>
 		<div class="info-text"
-			style="margin-left: 5px; float: left; width: 65%; cursor: default">
-			This experiment interacts with the <strong>TADs</strong> installed at
-			the Observatorio del Teide in Tenerife.
-		</div>
+			style="margin-left: 5px; float: left; width: 65%; cursor: default; font-size: 0.9em; line-height: 20px;">
+			{{'solar.blocks.tel_desc.content'|i18n}}</div>
 	</div>
 	<div class="span3" ng-controller="SolarMountCtrl"
 		style="cursor: default">
 		<div align="center">
-			<h5 class="label-info"
-				style="margin-top: 0px; background-color: rgba(0, 136, 204, 0.13)">{{'solar.blocks.target.title'|i18n}}</h5>
+			<h5 class="label-info title" style="margin-top: 0px">{{'solar.blocks.target.title'|i18n}}</h5>
 		</div>
 		<div ng-show="!targetReady">
-			<div class="mess-info" style="float: left; margin-left: 10px;">{{targetMessage}}</div>
+			<div class="mess-info"
+				style="float: left; font-size: 0.9em; line-height: 20px;">{{targetMessage
+				|i18n}}</div>
 		</div>
 		<div class="animate-show" ng-show="targetReady">
 			<div
@@ -41,7 +35,8 @@
 					ng-src="{{mainPath}}/img/sun-icon.png" ng-click="pointToTarget()">
 			</div>
 			<div ng-class="{'mess-info': inAction }"
-				style="float: left; width: 62%; margin-left: 10px;">{{targetMessage}}</div>
+				style="float: left; width: 62%; margin-left: 10px; font-size: 0.9em; line-height: 20px;">{{targetMessage
+				|i18n}}</div>
 		</div>
 
 	</div>
@@ -51,23 +46,23 @@
 		ng-mouseenter="status.focused=true"
 		ng-mouseleave="status.focused=false" style="cursor: default">
 		<div align="center">
-			<h5 class="label-info"
-				style="background-color: rgba(0, 136, 204, 0.13)">{{'solar.blocks.exterior.title'|i18n}}</h5>
+			<h5 class="label-info title">{{'solar.blocks.exterior.title'|i18n}}</h5>
 		</div>
 		<div>
-			<div class="animate-show arrows-control"
-				ng-class="{'opaque': status.focused==true}"
-				style="position: relative">
+			<div class="animate-show" ng-class="{'opaque': status.focused==true}"
+				style="position: relative; opacity: 0.7">
 				<div ng-style="status.dome.openStyle"
 					ng-show="status.dome.openEnabled" tooltip-popup-delay="500"
-					tooltip="Open the dome" tooltip-placement="left"
+					tooltip="{{'solar.blocks.exterior.open' |i18n}}"
+					tooltip-placement="left"
 					style="position: absolute; width: 35px; left: 57%; top: 123px; cursor: pointer">
 					<img class="bright-button" ng-src="{{mainPath}}/img/dome_open.png"
 						ng-click="openDome()">
 				</div>
 				<div ng-style="status.dome.closeStyle"
 					ng-show="status.dome.closeEnabled" tooltip-popup-delay="500"
-					tooltip="Close the dome" tooltip-placement="left"
+					tooltip="{{'solar.blocks.exterior.close' |i18n}}"
+					tooltip-placement="left"
 					style="position: absolute; width: 35px; left: 78.3%; top: 123px; cursor: pointer">
 					<img class="bright-button" ng-src="{{mainPath}}/img/dome_close.png"
 						ng-click="closeDome()">
@@ -79,7 +74,7 @@
 					ng-switch-when="true" ng-src="{{mainPath}}/img/wn4.gif"
 					style="width: 216px; height: 162px; border: 2px solid rgba(0, 0, 0, 0.25); border-radius: 3px;">
 					<img ng-switch-when="false" id="{{$index}}" ng-src="{{image.purl}}"
-					err-src="solar/img/wn4.gif"
+					err-SRC="solar/img/wn4.gif"
 					style="height: 162px; width: 216px; border: 2px solid rgba(0, 0, 0, 0.25); border-radius: 3px;">
 				</span>
 			</div>
@@ -88,8 +83,7 @@
 	<div ng-controller="SolarCCDCtrl" style="cursor: default">
 		<div class="span6">
 			<div align="center">
-				<h5 class="label-info"
-					style="background-color: rgba(0, 136, 204, 0.13)">{{'solar.blocks.tel_sight.title'|i18n}}</h5>
+				<h5 class="label-info title">{{'solar.blocks.tel_sight.title'|i18n}}</h5>
 			</div>
 			<div ng-mouseenter="status.main.focused=true"
 				ng-mouseleave="status.main.focused=false">
@@ -98,7 +92,7 @@
 						ng-switch-when="true" ng-src="{{mainPath}}/img/wn5.gif"
 						style="max-width: 100%; height: 342px; border: 2px solid rgba(0, 0, 0, 0.25); border-radius: 3px">
 						<img ng-switch-when="false" ng-src="{{ccds[0].pcont}}"
-						err-src="solar/img/wn5.gif"
+						err-SRC="solar/img/wn5.gif"
 						style="height: 342px; max-width: 100%; border: 2px solid rgba(0, 0, 0, 0.25); border-radius: 3px">
 					</span>
 					<div class="animate-show animate-hide"
@@ -107,15 +101,16 @@
 							ng-class="{'opaque': status.main.focused==true}"
 							id="exposure-control" style="position: relative;">
 							<div
-								style="overflow: hidden; position: absolute; top: -285px; left: 26px; width: 13px; height: 230px; background-color: rgba(0, 136, 204, 0.13);">
+								style="overflow: hidden; position: absolute; top: -285px; left: 26px; width: 13px; height: 230px; background-color: rgba(45, 95, 128, 0.12);">
 								<div style="overflow: hidden; position: relative; height: 100%">
 									<div class="images" ng-style="exposureBarStyle"
-										style="position: absolute; left: 0px; width: 13px; height: 230px; background-color: rgba(204, 204, 204, 0.3);">
+										style="position: absolute; left: 0px; width: 13px; height: 230px; background-color: rgba(204, 204, 204, 0.5);">
 
 									</div>
 								</div>
 							</div>
-							<div tooltip-popup-delay="500" tooltip="Increase exposure time"
+							<div tooltip-popup-delay="500"
+								tooltip="{{'solar.blocks.tel_sight.incexp'| i18n}}"
 								tooltip-placement="right"
 								style="position: absolute; top: -330px; left: 23px;">
 								<img ng-show="status.main.exposure.valueSet"
@@ -125,7 +120,8 @@
 									style="width: 20px; cursor: pointer" class="bright-button"
 									ng-src="{{mainPath}}/img/plus.png">
 							</div>
-							<div tooltip-popup-delay="500" tooltip="Decrease exposure time"
+							<div tooltip-popup-delay="500"
+								tooltip="{{'solar.blocks.tel_sight.decexp'| i18n}}"
 								tooltip-placement="right"
 								style="position: absolute; top: -35px; left: 23px;">
 								<img ng-mouseup="endSetExposureTime()"
@@ -135,7 +131,8 @@
 									style="width: 20px; cursor: pointer" class="bright-button"
 									ng-src="{{mainPath}}/img/minus.png">
 							</div>
-							<div tooltip-popup-delay="500" tooltip="Set exposure time"
+							<div tooltip-popup-delay="500"
+								tooltip="{{'solar.blocks.tel_sight.setexp'| i18n}}"
 								tooltip-placement="top"
 								ng-mouseenter="status.main.clock.focused=true"
 								ng-mouseleave="status.main.clock.focused=false"
@@ -145,7 +142,7 @@
 									style="float: left; width: 30px; cursor: pointer"
 									ng-src="{{mainPath}}/img/exposure.png">
 								<div class="animate-show" ng-show="status.main.clock.focused"
-									style="float: left; margin-top: 5px; margin-left: 5px;">{{ccds[0].exposure
+									style="float: left; margin-top: 5px; margin-left: 5px; font-size: 0.9em">{{ccds[0].exposure
 									| number:3}} s</div>
 							</div>
 						</div>
@@ -153,17 +150,18 @@
 							ng-class="{'opaque': status.main.focused==true}"
 							id="exposure-control" style="position: relative;">
 							<div
-								style="overflow: hidden; position: absolute; top: -285px; left: 90.8%; width: 13px; height: 230px; background-color: rgba(0, 136, 204, 0.13);">
+								style="overflow: hidden; position: absolute; top: -285px; left: 417px; width: 13px; height: 230px; background-color: rgba(45, 95, 128, 0.12);">
 								<div style="overflow: hidden; position: relative; height: 100%">
 									<div class="images" ng-style="focuserBarStyle"
-										style="position: absolute; left: 0px; width: 13px; top: 115px; height: 2px; background-color: rgba(204, 204, 204, 0.3);">
+										style="position: absolute; left: 0px; width: 13px; top: 115px; height: 2px; background-color: rgba(204, 204, 204, 0.5);">
 
 									</div>
 								</div>
 							</div>
-							<div tooltip-popup-delay="500" tooltip="Increse focus steps"
+							<div tooltip-popup-delay="500"
+								tooltip="{{'solar.blocks.tel_sight.incstep'| i18n}}"
 								tooltip-placement="left"
-								style="position: absolute; top: -330px; left: 90%;">
+								style="position: absolute; top: -330px; left: 413px;">
 								<img ng-show="status.main.focuser.valueSet"
 									ng-mouseup="endSetFocuserPosition()"
 									ng-mousedown="beginSetFocuserPosition()"
@@ -171,9 +169,10 @@
 									style="width: 20px; cursor: pointer" class="bright-button"
 									ng-src="{{mainPath}}/img/plus.png">
 							</div>
-							<div tooltip-popup-delay="500" tooltip="Decrease focus steps"
+							<div tooltip-popup-delay="500"
+								tooltip="{{'solar.blocks.tel_sight.decstep'| i18n}}"
 								tooltip-placement="left"
-								style="position: absolute; top: -35px; left: 90%;">
+								style="position: absolute; top: -35px; left: 413px;">
 								<img ng-show="status.main.focuser.valueSet"
 									ng-mouseup="endSetFocuserPosition()"
 									ng-mousedown="beginSetFocuserPosition()"
@@ -181,21 +180,24 @@
 									style="width: 20px; cursor: pointer" class="bright-button"
 									ng-src="{{mainPath}}/img/minus.png">
 							</div>
-							<div tooltip-popup-delay="500" tooltip="Change focus"
+							<div tooltip-popup-delay="500"
+								tooltip="{{'solar.blocks.tel_sight.move'| i18n}}"
 								tooltip-placement="top"
 								ng-mouseenter="status.main.focus.focused=true"
 								ng-mouseleave="status.main.focus.focused=false"
 								ng-style="focuserStyle" class="images"
-								style="position: absolute; left: 89.1%; cursor: pointer">
+								style="position: absolute; left: 409px; cursor: pointer">
 								<div class="animate-show" ng-show="status.main.focus.focused"
-									style="position: absolute; width: 100px; text-align: right; right: 35px; float: left; margin-top: 5px; margin-right: 5px">{{focuser.offset-
+									style="position: absolute; width: 100px; text-align: right; right: 35px; float: left; margin-top: 5px; margin-right: 5px; font-size: 0.9em">{{focuser.offset-
 									500 | number: 0}} steps</div>
 								<img class="bright-button" ng-click="setFocuserPosition()"
-									style="float: left; width: 30px;" ng-src="{{mainPath}}/img/focus.png">
+									style="float: left; width: 30px;"
+									ng-src="{{mainPath}}/img/focus.png">
 
 							</div>
 						</div>
-						<div tooltip-popup-delay="500" tooltip="Take an image"
+						<div tooltip-popup-delay="500"
+							tooltip="{{'solar.blocks.tel_sight.take'| i18n}}"
 							tooltip-placement="top" class="arrows-control"
 							ng-class="{'opaque': status.main.camera.focused}"
 							ng-mouseenter="status.main.camera.focused=true"
@@ -203,8 +205,10 @@
 							style="position: absolute; top: -53px; left: 200px;">
 							<img ng-show="imageTaken" ng-click="startExposure()"
 								style="width: 43px; cursor: pointer" class="bright-button"
-								ng-src="{{mainPath}}/img/take.png"> <img ng-show="!imageTaken"
-								style="width: 43px; cursor: default" ng-src="{{mainPath}}/img/loading.gif">
+								ng-src="{{mainPath}}/img/take.png"> <img
+								ng-show="!imageTaken"
+								style="width: 43px; cursor: default; margin-top: -4px"
+								ng-src="{{mainPath}}/img/loading.gif">
 						</div>
 					</div>
 				</div>
@@ -212,8 +216,7 @@
 		</div>
 		<div class="span3">
 			<div align="center">
-				<h5 class="label-info"
-					style="background-color: rgba(0, 136, 204, 0.13)">{{'solar.blocks.finder.title'|i18n}}</h5>
+				<h5 class="label-info title">{{'solar.blocks.finder.title'|i18n}}</h5>
 			</div>
 			<div ng-mouseenter="status.finder.focused=true"
 				ng-mouseleave="status.finder.focused=false" align="center"
@@ -225,32 +228,36 @@
 						<img ng-switch-when="true" ng-src="{{mainPath}}/img/wn3.gif"
 							style="height: 198px;"> <img ng-switch-when="false"
 							ng-src="{{ccds[1].pcont}}"
-							style="height: 198px; max-width: 150%;" err-src="solar/img/wn3.gif">
+							style="height: 198px; max-width: 150%;"
+							err-SRC="solar/img/wn3.gif">
 					</div>
 				</div>
-				<!-- http://jsfiddle.net/jackJoe/YhDXm/-->
 				<div style="position: relative;">
 					<div ng-show="arrowsEnabled" class="arrows-control animate-show"
 						ng-class="{'opaque': status.finder.focused==true}">
-						<div tooltip-popup-delay="500" tooltip="Move south"
+						<div tooltip-popup-delay="500"
+							tooltip="{{'solar.blocks.target.move-s'| i18n}}"
 							tooltip-placement="top"
 							style="position: absolute; width: 15%; top: -28px; left: 94px; cursor: pointer;">
 							<img class="bright-button" ng-src="{{mainPath}}/img/down.png"
 								ng-click="moveFinder('SOUTH')">
 						</div>
-						<div tooltip-popup-delay="500" tooltip="Move north"
+						<div tooltip-popup-delay="500"
+							tooltip="{{'solar.blocks.target.move-n'| i18n}}"
 							tooltip-placement="bottom"
 							style="position: absolute; width: 15%; top: -203px; left: 94px; cursor: pointer;">
 							<img class="bright-button" ng-src="{{mainPath}}/img/up.png"
 								ng-click="moveFinder('NORTH')">
 						</div>
-						<div tooltip-popup-delay="500" tooltip="Move west"
+						<div tooltip-popup-delay="500"
+							tooltip="{{'solar.blocks.target.move-w'| i18n}}"
 							tooltip-placement="right"
 							style="position: absolute; width: 8%; top: -123px; left: 14px; cursor: pointer;">
 							<img class="bright-button" ng-src="{{mainPath}}/img/left.png"
 								ng-click="moveFinder('WEST')">
 						</div>
-						<div tooltip-popup-delay="500" tooltip="Move east"
+						<div tooltip-popup-delay="500"
+							tooltip="{{'solar.blocks.target.move-e'| i18n}}"
 							tooltip-placement="left"
 							style="position: absolute; width: 8%; top: -123px; left: 188px; cursor: pointer;">
 							<img class="bright-button" ng-src="{{mainPath}}/img/right.png"
@@ -266,15 +273,15 @@
 			<div ng-controller="SolarWeatherCtrl"
 				style="margin-top: 14px; height: 63px; cursor: default"
 				align="center">
-				<h5 class="label-info"
-					style="background-color: rgba(0, 136, 204, 0.13)">{{'solar.blocks.weather.title'|i18n}}</h5>
+				<h5 class="label-info title">{{'solar.blocks.weather.title'|i18n}}</h5>
 				<div ng-show="!valuesLoaded">
-					<div class="mess-info" style="float: left; margin-left: 10px;">Looking
-						for weather info.</div>
+					<div class="mess-info"
+						style="float: left; font-size: 0.9em; line-height: 20px;">{{'solar.blocks.weather.looking'|i18n}}</div>
 				</div>
 				<div class="animate-show" ng-show="valuesLoaded"
-					style="overflow: hidden;">
-					<div tooltip-popup-delay="500" tooltip="Relative humidity"
+					style="overflow: hidden; font-size: 0.9em">
+					<div tooltip-popup-delay="500"
+						tooltip="{{'solar.blocks.weather.hr'| i18n}}"
 						tooltip-placement="top" ng-class="{'mess-info': rh.high}"
 						style="float: left; display: inline-block; width: 50%">
 						<div style="width: 30%; float: left;">
@@ -284,7 +291,8 @@
 							style="float: left; margin-top: 5px; margin-left: 4px">{{rh.value}}
 							%</div>
 					</div>
-					<div tooltip-popup-delay="500" tooltip="Wind speed"
+					<div tooltip-popup-delay="500"
+						tooltip="{{'solar.blocks.weather.wind'| i18n}}"
 						tooltip-placement="top" ng-class="{'mess-info': wind.high}"
 						style="float: left; display: inline-block; width: 50%">
 						<div style="width: 30%; float: left;">
@@ -297,15 +305,16 @@
 				</div>
 				<div style="display: none"></div>
 			</div>
-			<div style="margin-top: 14px; cursor: default" align="center"
-				ng-controller="SolarElapsedCtrl">
+			<div style="margin-top: 14px; cursor: default; height: 40px"
+				align="center" ng-controller="SolarElapsedCtrl">
 				<div align="center">
-					<h5 class="label-info"
-						style="margin-top: 0px; background-color: rgba(0, 136, 204, 0.13)">{{'solar.blocks.elapsed.title'|i18n}}</h5>
+					<h5 class="label-info title">{{'solar.blocks.elapsed.title'|i18n}}</h5>
 				</div>
-				<div ng-class="{'mess-info': fewSecondsLeft }" class="animate-show"
+				<div style="font-size: 0.9em; line-height: 20px;"
+					ng-class="{'mess-info': fewSecondsLeft }" class="animate-show"
 					ng-show="loaded">
-					<div tooltip-popup-delay="500" tooltip="{{remaining}} s remaining"
+					<div tooltip-popup-delay="500"
+						tooltip="{{'solar.blocks.elapsed.remaining'|i18n:remaining}}"
 						tooltip-placement="left" class="progress"
 						style="background-image: none; background-color: rgba(0, 0, 0, 0.25); height: 10px; width: 95%">
 						<div ng-style="progressStyle" class="bar"
@@ -313,7 +322,9 @@
 					</div>
 				</div>
 				<div ng-show="!loaded">
-					<div class="mess-info" style="float: left; margin-left: 10px;">Calculating.</div>
+					<div class="mess-info"
+						style="float: left; font-size: 0.9em; line-height: 20px;">{{'solar.blocks.elapsed.calc'
+						|i18n}}</div>
 				</div>
 			</div>
 		</div>
@@ -323,8 +334,7 @@
 	<div ng-controller="SolarImagesCtrl" class="span9"
 		style="height: 100px; cursor: default">
 		<div align="center">
-			<h5 class="label-info"
-				style="margin-top: 0px; background-color: rgba(0, 136, 204, 0.13)">{{'solar.blocks.images.title'|i18n}}</h5>
+			<h5 class="label-info title" style="margin-top: 0px">{{'solar.blocks.images.title'|i18n}}</h5>
 		</div>
 		<div
 			style="float: left; cursor: pointer; width: 18px; margin-top: 12px; margin-left: 12px; height: 36px">
@@ -337,7 +347,7 @@
 			<div class="images" ng-style="sliderStyle" id="thumbnails"
 				style="width: 850px; position: absolute;">
 				<div class="image-thumb" style="margin-top: 2px"
-					ng-repeat="image in images | filter:filterFn"
+					ng-show="thumbsReady" ng-repeat="image in images | filter:filterFn"
 					ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
 					<div style="position: relative">
 						<a> <img ng-click="open(image)"
@@ -353,8 +363,8 @@
 		<div
 			style="float: left; cursor: pointer; width: 18px; margin-top: 12px; height: 36px">
 			<img ng-show="currentIndex + 6 < images.length"
-				class="animate-show bright-button" ng-src="{{mainPath}}/img/right.png"
-				ng-click="nextRight()">
+				class="animate-show bright-button"
+				ng-src="{{mainPath}}/img/right.png" ng-click="nextRight()">
 		</div>
 		<div>
 			<script type="text/ng-template" id="myModalContent.html">
@@ -366,7 +376,7 @@
 	            				<img ng-src="{{image.jpg}}">        			
         					</div>
         					<div class="modal-footer" style="background-color: rgba(0, 0, 0, 0.6); border: none">
-								<p class="pull-left">You took this image at {{image.date | UTCTimeFilter}}.</p>
+								<p class="pull-left">{{'solar.blocks.images.took'}} {{image.date | utc | date:short}} UT.</p>
 								<a class="btn btn-primary" download="image.jpg" ng-href="{{image.jpg + '&download=true'}}">JPEG</a>
 								<a class="btn btn-warning" download="image.jpg" ng-href="{{image.fits + '&download=true'}}">FITS</a>            					
         					</div>
@@ -376,8 +386,8 @@
 	</div>
 	<div class="span3" align="center" style="cursor: default">
 		<div align="center">
-			<h5 class="label-info"
-				style="margin-top: 0px; margin-bottom: 15px; background-color: rgba(0, 136, 204, 0.13)">{{'solar.blocks.measure.title'|i18n}}</h5>
+			<h5 class="label-info title"
+				style="margin-bottom: 15px; margin-top: 0px">{{'solar.blocks.measure.title'|i18n}}</h5>
 		</div>
 		<a target="about_blank"
 			href="https://play.google.com/store/apps/details?id=com.gloria.offlineexperiments">
