@@ -8,6 +8,11 @@
 	margin-top: 10px;
 }
 
+.info-text {
+	font-size: 0.9em; 
+	line-height: 19px;
+}
+
 .circle {
 	border: 1px solid black;
 	-webkit-border-radius: 50%;
