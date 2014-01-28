@@ -1,0 +1,81 @@
+{
+        "header" : "Esperimento Solare",
+        "reservation": {
+                "obsolete": {
+                        "l1": "La prenotazine con id @{p1}@ è obsoleta",
+                        "l2": "Ne vuoi una nuova? Clicca",
+                        "here": "qui"
+                },
+                "unknown": "La prenotazione con id @{p1}@ non esiste",
+                "loading": "Sto caricando",
+                "problem": "Il telescopio non funziona correttamente. Per favore prova di nuovo tra alcuni minuti.",
+                "end": "La tua prenotazione è terminata. Speriamo che l'esperimento ti sia piaciuto!",
+                "login": "Non sei connesso. Ti sto trasferendo",
+                "nvalid" : "La prenotazione con id @{p1}@ non è valida."
+        },
+        "blocks": {
+                "purpose": {
+                        "title": "Finalità",
+                        "content": "Questo esperimento vuole raccogliere quante più immagini possibile della fotosfera solare. Più le immagini sono buone, più accurata sarà la misura dell'attività solare che otterremo."
+                },
+                "tel_desc": { 
+                        "title": "Descrizione del telescopio",
+                        "content": "Questo esperimento utilizza il telescopio TADs situato all'Osservatorio del Teide a Tenerife."
+                },
+                "target": { 
+                        "title": "Puntamento",
+                        "loading": "Sto caricando",
+                        "point": "Richiesta al TADs di puntare il Sole.",
+                        "request": "Dai un 'click' sul Sole per iniziare il puntamento.",
+                        "pointed": "Quando il Sole sarà visibile potrai usare le freccie per centrarlo.",
+                        "moving-e": "Mi muovo verso Est",
+                        "moving-n": "Mi muovo verso Nord",
+                        "moving-s": "Mi muovo verso Sud",
+                        "moving-w": "Mi muovo verso Ovest",
+                        "move-e": "Muovi a Est",
+                        "move-n": "Muovi a Nord",
+                        "move-s": "Muovi a Sud",
+                        "move-w": "Muovi a Ovest",
+                        "done": "Fatto",
+                        "error": "Si è verificato un errore."
+                },
+                "finder": {
+                        "title": "Cercatore",
+                        "content": ""
+                },
+                "exterior": {
+                        "title": "Vista esterna",
+                        "open": "Apri la cupola",
+                        "close": "Chiudi la cupola"
+                },
+                "tel_sight": {
+                        "title": "Vista Telescopio",
+                        "incexp": "Aumenta il tempo di esposizione",
+                        "decexp": "Diminuisci il tempo di esposizione",
+                        "setexp": "Imposta il tempo di esposizione",
+                        "incstep": "Aumenta l'intervallo del focalizzatore",
+                        "decstep": "Diminuisci l'intervallo del focalizzatore",
+                        "move": "Aggiorna il fuoco",
+                        "take": "Prendi un'immagine"
+                },
+                "weather": {
+                        "title": "Condizioni meteo",
+                        "looking": "Sto cercando informazioni meteo",
+                        "rh": "Umidità relativa",
+                        "wind": "Velocità del vento"
+                        
+                },
+                "elapsed": {
+                        "title": "Tempo trascorso",
+                        "calc": "Sto calcolando",
+                        "remaining": "@{p1}@ s rimasti"
+                },
+                "images": {
+                        "title": "Le tue immagini",
+                        "took": "Hai preso questa immagine alle"
+                },
+                "measure": {
+                        "title": "Misura l'attività solare"
+                }
+        }
+}

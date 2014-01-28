@@ -4,6 +4,9 @@ function LoadWeatherValues($gloriaAPI, scope) {
 	return scope.sequence.execute(function() {
 		return $gloriaAPI.executeOperation(scope.rid, 'load_weather_values',
 				function(data) {
+					$gloriaAPI.executeOperation(scope.rid,
+							'get_wind_speed_alarm');
+					$gloriaAPI.executeOperation(scope.rid, 'get_rh_alarm');
 				}, function(error) {
 					// alert(error);
 				});
@@ -15,9 +18,23 @@ function LoadWeatherContent($gloriaAPI, scope) {
 		return $gloriaAPI.getParameterValue(scope.rid, 'weather',
 				function(data) {
 					scope.wind.value = data.wind.value;
-					scope.wind.high = scope.wind.value > 7;
+					scope.wind.high = scope.wind.alarm;
+
+					if (scope.wind.high) {
+						scope.wind.style.color = '#FF9900';
+					} else {
+						scope.wind.style.color = 'silver';
+					}
+
 					scope.rh.value = data.rh.value;
-					scope.rh.high = scope.rh.value > 80;
+					scope.rh.high = scope.rh.alarm;
+
+					if (scope.rh.high) {
+						scope.rh.style.color = '#FF9900';
+					} else {
+						scope.rh.style.color = 'silver';
+					}
+
 					scope.valuesLoaded = true;
 					scope.$parent.$parent.weatherLoaded = true;
 
