@@ -165,6 +165,10 @@ function SolarMainCtrl($gloriaAPI, $scope, $timeout,
 			$scope.wrongReservation = true;
 		}
 	} else {
-		$scope.reservationActive = true;
+		$scope.rid = -1;
+		$scope.preRid = '';
+		$scope.reservationObsolete = true;
+		$scope.reservationActive = false;
+		$scope.infoUpdated = true;
 	}
 }
