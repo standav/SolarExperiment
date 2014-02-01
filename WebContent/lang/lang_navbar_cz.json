@@ -1,0 +1,20 @@
+{
+	"titles" : {
+		"home": "Úvod",
+		"experiments": {
+			"header": "Experimenty",
+			"online": {
+				"header": "Online",
+				"solar" : "Sluneční"
+			},
+			"reservations" : {
+				"header": "REZERVACE",
+				"new": "Nová",
+				"pending": "Nevyřízená"
+			}
+		},
+		"images": {
+			"header": "Snímky"
+		}
+	}
+}
