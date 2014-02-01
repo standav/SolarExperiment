@@ -1,0 +1,81 @@
+{
+	"header" : "Sluneční experiment",
+	"reservation": {
+		"obsolete": {
+			"l1": "Rezervace s id @{p1}@ vypršela",
+			"l2": "Chcete novou?. Klikněte",
+			"here": "zde"
+		},
+		"unknown": "Rezervace s id @{p1}@ neexistuje",
+		"loading": "Nahrávám",
+		"problem": "Dalekohled nefunguje správně. Zkuste to prosím za několik minut",
+		"end": "Vaše rezervace skončila, doufáme, že jste si experiment užil(a)!",
+		"login": "Nejste přihlášen(a). Dojde k přesměrování",
+		"nvalid" : "Rezervace s id @{p1}@ není platná"		
+	},
+	"blocks": {
+		"purpose": {
+			"title": "Účel",
+			"content": "Cílem tohoto experimentu je pořízení co největšího počtu kvalitních snímků sluneční fotosféry. Čím lepší budou snímky, tím kvalitnější bude měření aktivity Slunce"
+		},
+		"tel_desc": { 
+			"title": "Popis dalekohledu",
+			"content": "Tento experiment využívá dalekohled TAD umístěný na observatoři Teide na Tenerife"
+		},
+		"target": { 
+			"title": "Cíl",
+			"loading": "Nahrávám",
+			"point": "Žádám TAD o pointaci na Slunce",
+			"request": "Klikem na Slunce spustíte pointaci",
+			"pointed": "Jakmile uvidíte Slunce, můžete snímek vycentrova šipkami hledáčku",
+			"moving-e": "Přesouvám na východ",
+			"moving-n": "Přesouvám na sever",
+			"moving-s": "Přesouvám na jih",
+			"moving-w": "Přesouvám na západ",
+			"move-e": "Přesun na východ",
+			"move-n": "Přesun na sever",
+			"move-s": "Přesun na jih",
+			"move-w": "Přesun na západ",
+			"done": "Hotovo",
+			"error": "Došlo k chybě"
+		},
+		"finder": {
+			"title": "Hledáček",
+			"content": ""
+		},
+		"exterior": {
+			"title": "Pohled zvenku",
+			"open": "Otevřít kopuli",
+			"close": "Zavřít kopuli"
+		},
+		"tel_sight": {
+			"title": "Pohled dalekohledem",
+			"incexp": "Prodloužit expoziční čas",
+			"decexp": "Zkrátit expoziční čas",
+			"setexp": "Nastavit expoziční čas",
+			"incstep": "Zvýšit polohu zaostřovače",
+			"decstep": "Snížit polohu zaostřovače",
+			"move": "Nastavit zaostřovač",
+			"take": "Pořídit snímek"
+		},
+		"weather": {
+			"title": "Povětrnostní podmínky",
+			"looking": "Získávám informace o počasí",
+			"rh": "Relativní vlhkost",
+			"wind": "Rychlost větru"
+			
+		},
+		"elapsed": {
+			"title": "Uplynulý čas",
+			"calc": "Počítám",
+			"remaining": "@{p1}@ s zbývá"
+		},
+		"images": {
+			"title": "Vaše snímky",
+			"took": "Snímek byl pořízen v"
+		},
+		"measure": {
+			"title": "Měření sluneční aktivity"
+		}
+	}
+}
