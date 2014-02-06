@@ -1,20 +1,33 @@
 {
-	"titles" : {
-		"home": "Домой",
-		"experiments": {
-			"header": "Эксперименты",
-			"online": {
-				"header": "Онлайн",
-				"solar" : "Солнечный"
-			},
-			"reservations" : {
-				"header": "БРОНИРОВАНИЯ",
-				"new": "Новое",
-				"pending": "На рассмотрении"
-			}
-		},
-		"images": {
-			"header": "Изображения"
-		}
-	}
+    "titles": {
+        "home": "Домой",
+        "experiments": {
+            "header": "Эксперименты",
+            "online": {
+                "header": "ОНЛАЙН",
+                "solar": "Солнечный",
+                "night": "Ночной"
+            },
+            "reservations": {
+                "header": "БРОНИРОВАНИЯ",
+                "new": "Новое",
+                "pending": "Текущие"
+            },
+            "offline": {
+                "header": "ОФФЛАЙН",
+                "pspace": "Личное Небо",
+                "wolf": "Солнечная активность",
+                "luiza": "Переменные звёзды"
+            }
+        },
+        "images": {
+            "header": "Изображения"
+        },
+        "profile": {
+            "header": "Profile"
+        },
+        "issues": {
+            "header": "Issues"
+        }
+    }
 }
