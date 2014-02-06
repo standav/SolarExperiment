@@ -1,7 +1,7 @@
 {
 	"header": "Aspetti software",
 	"intro": "Vogliamo condividere con te la lista di problemi che stiamo cercando di risolvere e le migliorie su cui intendiamo lavorare. Per farlo confidiamo sui servizi degli archivi GitHub, e in particolare per questo sito, il progetto UsersHub.",
-	"scope": "UsersHub è il software che ti permette di accedere alle sezioni Benvenuto, Home, Immagini, Profilo e Software. Quindi tutte le cose riportate qui si referiscono al contenuto di tutto il sito.",
+	"scope": "SolarExperiment è il software che ti permette di interagire con i nostri telescopi solari ed effettuare l'esperimento solare. Quindi tutte le cose riportate qui si referiscono al contenuto del sito menzionato.",
 	"bugs": "Problemi",
 	"none": "Nessun argomento presente",
 	"enhancements": "Migliorie",
