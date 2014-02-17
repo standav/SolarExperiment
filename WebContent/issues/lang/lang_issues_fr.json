@@ -1,5 +1,5 @@
 {
-	"header": "Problèmes avec le logiciel",
+	"header": "Problèmes du logiciel",
 	"intro": "Nous voudrions partager avec vous la liste des problèmes que nous tentons de résoudre et des améliorations auxquelles nous travaillons. Pour ce faire, nous nous basons sur les services de nos dépôts Github, et particulièrement pour ce site, le projet SolarExperiment.",
 	"scope": "SolarExperiment est un logiciel qui vous permet d'interragir avec nos télescopes solaires et d'effectuer l'expérience solaire.",
 	"bugs": "Bugs",
