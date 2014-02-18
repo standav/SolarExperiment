@@ -1,80 +1,80 @@
 {
-    "header": "Solar experiment",
+    "header": "Expérience solaire",
     "reservation": {
         "obsolete": {
-            "l1": "The reservation id @{p1}@ is obsolete",
-            "l2": "Want to get a new one?. Click",
-            "here": "here"
+            "l1": "L'identifiant de réservation @{p1}@ est périmé",
+            "l2": "Voulez vous en recevoir un nouveau ? Cliquez",
+            "here": "ici"
         },
-        "unknown": "The reservation id @{p1}@ does not exist",
-        "loading": "Loading",
-        "problem": "The telescope is not working properly. Please try again in a few minutes",
-        "end": "Your reservation has ended, we hope you enjoyed the experiment!",
-        "login": "You are not logged in. Redirecting",
-        "nvalid": "The reservation id @{p1}@ is not valid"
+        "unknown": "L'identifiant de réservation @{p1}@ n'existe pas",
+        "loading": "Chargement",
+        "problem": "Le télescope ne fonctionne pas correctement. Réessayez dans quelques minutes.",
+        "end": "Votre réservation est terminée. Nous espérons que vous avez apprécié l'expérience!",
+        "login": "Vous n'êtes pas connecté. Redirection",
+        "nvalid": "L'identifiant de réservation @{p1}@ n'est pas valide"
     },
     "blocks": {
         "purpose": {
-            "title": "Purpose",
-            "content": "This experiment aims to get as many images of the solar photosphere as possible. The better the image, the more accurate the measurement of solar activity we get."
+            "title": "But",
+            "content": "Le but de cette expérience est d'observer le plus grand nombre possible d'images de la photosphère solaire. Plus la qualité des images obtenues est élevée, plus la mesure de l'activité solaire sera précise."
         },
         "tel_desc": {
-            "title": "Telescope description",
-            "content": "This experiment interacts with the TADs telescope installed at the Observatorio del Teide in Tenerife."
+            "title": "Description du télescope",
+            "content": "Cette expérience interragit avec le télescope TAD installé à l'observatoire du Teide à Ténérife."
         },
         "target": {
-            "title": "Target",
-            "loading": "Loading",
-            "point": "Asking TADs to point to the Sun",
-            "request": "Just click on the Sun to start pointing",
-            "pointed": "Once the Sun is visible, you can use the finder arrows to centre",
-            "moving-e": "Moving to the east",
-            "moving-n": "Moving to the north",
-            "moving-s": "Moving to the south",
-            "moving-w": "Moving to the west",
-            "move-e": "Move east",
-            "move-n": "Move north",
-            "move-s": "Move south",
-            "move-w": "Move west",
-            "done": "Done",
-            "error": "An error has occurred"
+            "title": "Cible",
+            "loading": "Chargement",
+            "point": "Demande au télescope TAD de se positionner sur le soleil",
+            "request": "Cliquez sur le soleil pour commencer le positionnement",
+            "pointed": "Dès que le soleil est visible, vous pouvez utiliser le réticule du chercheur pour centrer.",
+            "moving-e": "Déplacement vers l'est",
+            "moving-n": "Déplacement vers le nord",
+            "moving-s": "Déplacement vers le sud",
+            "moving-w": "Déplacement vers l'ouest",
+            "move-e": "Aller vers l'est",
+            "move-n": "Aller vers le nord",
+            "move-s": "Aller vers le sud",
+            "move-w": "Aller vers l'ouest",
+            "done": "Terminé",
+            "error": "Une erreur s'est produite"
         },
         "finder": {
-            "title": "Finder",
+            "title": "Chercheur",
             "content": ""
         },
         "exterior": {
-            "title": "Exterior view",
-            "open": "Open the dome",
-            "close": "Close the dome"
+            "title": "Vue extérieure",
+            "open": "Ouvrir le dôme",
+            "close": "Fermer le dôme"
         },
         "tel_sight": {
-            "title": "Telescope sight",
-            "incexp": "Increase exposure time",
-            "decexp": "Decrease exposure time",
-            "setexp": "Set exposure time",
-            "incstep": "Increase focuser steps",
-            "decstep": "Decrease focuser steps",
-            "move": "Update focus",
-            "take": "Take an image"
+            "title": "Vue télescope",
+            "incexp": "Augmenter le temps d'exposition",
+            "decexp": "Diminuer le temps d'exposition",
+            "setexp": "Ajuster le temps d'exposition",
+            "incstep": "Avancer le focuser",
+            "decstep": "Reculer le focuser",
+            "move": "Mise au point",
+            "take": "Prendre une image"
         },
         "weather": {
-            "title": "Weather conditions",
-            "looking": "Looking for weather information",
-            "rh": "Relative humidity",
-            "wind": "Wind speed"
+            "title": "Conditions météo",
+            "looking": "Recherche des informations météo",
+            "rh": "Humidité relative",
+            "wind": "Vitesse du vent"
         },
         "elapsed": {
-            "title": "Elapsed time",
-            "calc": "Calculating",
-            "remaining": "@{p1}@ s remaining"
+            "title": "Temps écoulé",
+            "calc": "Calcul",
+            "remaining": "@{p1}@ s restantes"
         },
         "images": {
-            "title": "Your images",
-            "took": "You took this image at"
+            "title": "Vos images",
+            "took": "Vous avez obtenu cette image le "
         },
         "measure": {
-            "title": "Measure solar activity"
+            "title": "Mesurez l'activité solaire"
         }
     }
 }
